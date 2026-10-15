@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 300" font-family="Calibri,Arial,sans-serif">
+  <text x="230" y="22" text-anchor="middle" font-size="14" font-weight="bold" fill="#1E293B">The verify loop</text>
+  <g>
+    <rect x="160" y="40"  width="140" height="46" rx="10" fill="#028090"/>
+    <rect x="300" y="125" width="150" height="46" rx="10" fill="#00A896"/>
+    <rect x="160" y="210" width="140" height="46" rx="10" fill="#028090"/>
+    <rect x="10"  y="125" width="150" height="46" rx="10" fill="#02C39A"/>
+  </g>
+  <g text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="bold">
+    <text x="230" y="68">1. Prompt</text>
+    <text x="375" y="153">2. Read draft</text>
+    <text x="230" y="238">3. Verify</text>
+    <text x="85"  y="153">4. Iterate</text>
+  </g>
+  <g fill="none" stroke="#64748B" stroke-width="2.2" marker-end="url(#a5)">
+    <path d="M300,63 C360,75 400,95 392,123"/>
+    <path d="M360,171 C330,200 300,212 302,224"/>
+    <path d="M160,233 C100,221 60,201 68,173"/>
+    <path d="M85,125 C100,95 140,75 158,67"/>
+  </g>
+  <defs><marker id="a5" markerWidth="9" markerHeight="9" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#64748B"/></marker></defs>
+  <text x="230" y="160" text-anchor="middle" font-size="11" font-style="italic" fill="#64748B">the draft is the model's;</text>
+  <text x="230" y="176" text-anchor="middle" font-size="11" font-style="italic" fill="#64748B">the verification is yours</text>
+</svg>
