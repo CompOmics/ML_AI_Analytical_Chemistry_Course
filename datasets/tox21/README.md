@@ -80,6 +80,51 @@ training reference records. It does not estimate toxicity prevalence. Flags
 and assay predictions answer different questions; the flag-by-assay-label
 table is not a classifier confusion matrix.
 
+## Pretrained molecular generation in Foundations
+
+Both Foundations copies extend the classification exercise with the pretrained
+CDDD default model. CDDD encodes a SMILES structure into 512 learned values and
+decodes them back to a structure description. Its original task translates
+equivalent molecular representations; it is a translation autoencoder, rather
+than the variational autoencoder in the Gómez-Bombarelli molecular-design
+paper. It is not trained on the SR-MMP labels in this practical.
+
+The example starts from aspirin, source record `TOX108`, which belongs to the
+original training partition. Twelve random perturbations of its latent
+representation are decoded using NumPy's `default_rng(42)`, a noise standard
+deviation of 0.6, a beam width of 5 and a
+maximum decoding length of 120. These are fixed demonstration settings.
+The notebooks count invalid strings and repeated reconstructions before
+keeping distinct changed candidates. Canonical SMILES are compared with all
+readable structures in the downloaded file, including records without an
+SR-MMP label. This comparison does not establish novelty beyond that file or
+exclude overlap with pretraining, and does not merge salts or tautomers.
+RDKit fingerprint Tanimoto scores describe structural-pattern overlap with the
+starting molecule; they do not predict equal assay activity.
+
+The same eight descriptors are calculated for the proposals and supplied to
+the existing tree in the original feature order. The tree is not retrained,
+and generated candidates do not enter training or test accuracy calculations.
+Predicted Active or Inactive classes are assay hypotheses without measured
+candidate labels. Neither a valid structure nor an Inactive prediction
+establishes chemical feasibility or human safety.
+
+The installation cell pins `jax-cddd==0.1.0.post0`, CPU JAX 0.11.2, Flax
+0.12.10, Optax 0.2.8 and Orbax Checkpoint 0.11.32. The wrapper's dependency
+metadata requests CUDA; installing the CPU dependencies first and the wrapper
+with `--no-deps` enables the supplied CPU inference workflow. Converted weights
+and the vocabulary download from the publisher's GitHub release on first use;
+the package verifies their expected checksums. The approximately 200 MB weights
+are cached by the package and are not copied into this repository. Their SHA-256
+is `0c4bd08a593c78221c20506eca8e8b88b823b98e65ef3b3784ed4a63f266bd23`.
+An initial run needs the public model download as well as the data file.
+
+- [Winter et al., CDDD, Chemical Science (2019)](https://doi.org/10.1039/C8SC04175J).
+- [Original CDDD implementation and model](https://github.com/jrwnter/cddd).
+- [Pinned JAX inference package](https://pypi.org/project/jax-cddd/0.1.0.post0/).
+- [Converted model weights and vocabulary](https://github.com/OlivierBeq/jax-cddd/releases/tag/model_weights).
+- [Gómez-Bombarelli et al., molecular design, ACS Central Science (2018)](https://doi.org/10.1021/acscentsci.7b00572).
+
 ## Provenance, attribution and backup
 
 - [Tox21 challenge: original programme and assay tasks](https://tripod.nih.gov/tox21/challenge/about.jsp).

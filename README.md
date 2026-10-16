@@ -135,15 +135,25 @@ notebook is the current practical.
 
 This series follows the same three-step progression with DeepChem's public
 Tox21 data. It uses eight readable molecular descriptors and one assay,
-SR-MMP. Every practical supplies all code in cells of at most ten lines and
-has six interpretation questions. Instructor copies
+SR-MMP. Every practical supplies all code in cells of at most ten lines.
+Foundations has nine interpretation questions; Evaluation and Applications
+each have six. Instructor copies
 include suggested answers and saved outputs. Students do not write or change code.
 
 | Practical | Student notebook | Instructor notebook |
 |---|---|---|
-| Foundations: one small tree | [Student](01_Foundations/notebooks/TD1_tox21_student.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/01_Foundations/notebooks/TD1_tox21_student.ipynb) | [Instructor](01_Foundations/notebooks/TD1_tox21_solution.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/01_Foundations/notebooks/TD1_tox21_solution.ipynb) |
+| Foundations: classification and molecular generation | [Student](01_Foundations/notebooks/TD1_tox21_student.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/01_Foundations/notebooks/TD1_tox21_student.ipynb) | [Instructor](01_Foundations/notebooks/TD1_tox21_solution.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/01_Foundations/notebooks/TD1_tox21_solution.ipynb) |
 | Evaluation: overfitting and model comparison | [Student](03_Evaluation/notebooks/TD2_tox21_student.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/03_Evaluation/notebooks/TD2_tox21_student.ipynb) | [Instructor](03_Evaluation/notebooks/TD2_tox21_solution.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/03_Evaluation/notebooks/TD2_tox21_solution.ipynb) |
 | Applications: outlier detection | [Student](04_Applications/notebooks/TD3_tox21_student.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/04_Applications/notebooks/TD3_tox21_student.ipynb) | [Instructor](04_Applications/notebooks/TD3_tox21_solution.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/04_Applications/notebooks/TD3_tox21_solution.ipynb) |
+
+Foundations also loads a pretrained CDDD molecular autoencoder, reconstructs
+aspirin from the training group, and decodes twelve changed latent
+representations. Students inspect invalid outputs, repeated structures,
+fingerprint similarity and matches against the downloaded Tox21 file. The
+existing small tree predicts SR-MMP classes for the valid candidates using
+the same eight descriptors. These predictions have no new measured reference
+labels and do not establish overall toxicity or safety. The standard CPU
+runtime is sufficient; the model weights download automatically on first use.
 
 The notebooks calculate descriptors with a pinned RDKit release and read
 DeepChem's source CSV directly; installing the DeepChem Python package is not
