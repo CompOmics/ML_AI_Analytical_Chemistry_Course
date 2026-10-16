@@ -48,6 +48,9 @@ The RDKit release is pinned in a short installation cell. Structures are read
 as supplied; fragments, salts and charges are not removed. Descriptor choices
 are fixed teaching inputs, not chemical features optimised on test results.
 Neither `mol_id`, SMILES nor the assay label enters the feature table.
+Each notebook previews source records and draws the first four retained
+structures. A separate preview links source IDs and reference labels to the
+eight descriptor values, followed by a Mass/LogP plot coloured by assay label.
 
 ## How the practicals connect
 

@@ -11,10 +11,10 @@ Contents:
 - [Student notebook](notebooks/TD3_strawberry_student.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/04_Applications/notebooks/TD3_strawberry_student.ipynb)
 - [Instructor notebook with suggested answers](notebooks/TD3_strawberry_solution.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/04_Applications/notebooks/TD3_strawberry_solution.ipynb)
 
-About 60 minutes, for students who do not program. All code is supplied in
-short cells of at most ten lines, with explanations, two plots and six written
-interpretation questions. The notebook runs independently in Google Colab
-with the standard CPU runtime and internet access.
+All code is supplied in short cells of at most ten lines, with explanations,
+four figures and six written interpretation questions. The source table and
+two example spectra introduce the eight-feature transformation before outlier
+screening. The notebook runs independently in Google Colab with the standard CPU runtime.
 
 It reuses the same cleaned strawberry data, eight infrared window means and
 197-sample test partition as Foundations and Evaluation. One isolation forest
@@ -42,8 +42,10 @@ and slides also cover broader application examples.
 - [Student notebook](notebooks/TD3_tox21_student.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/04_Applications/notebooks/TD3_tox21_student.ipynb)
 - [Instructor notebook with suggested answers](notebooks/TD3_tox21_solution.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/04_Applications/notebooks/TD3_tox21_solution.ipynb)
 
-About 60 minutes, with all code supplied in cells of at most ten lines, two
-plots and six written interpretation questions. It reuses the eight Tox21
+All code is supplied in cells of at most ten lines, with four figures and six
+written interpretation questions. Source records, example structures and a
+labelled descriptor table introduce the data before outlier screening.
+It reuses the eight Tox21
 descriptors and 1,161 test compounds from Foundations and Evaluation.
 
 One isolation forest learns from all 4,643 original training records, including
