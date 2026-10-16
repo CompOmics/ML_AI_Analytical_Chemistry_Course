@@ -57,7 +57,7 @@ infrared features and 197 test samples. Each adds one main idea:
 
 | Practical | Main question | New idea |
 |---|---|---|
-| Foundations | Can one small tree predict the recorded class? | Training, testing and reading mistakes |
+| Foundations | How do a small tree and neural network predict the recorded class? | Reading spectra, forming features, training and testing |
 | Evaluation | Does a model that fits training samples well also work elsewhere? | Overfitting, validation and model choice |
 | Applications | Which measurements are unusual compared with Strawberry examples? | Outlier flags and laboratory follow-up |
 
@@ -78,11 +78,14 @@ have a different meaning from the class predictions in the first two practicals.
 - [Student Colab notebook](01_Foundations/notebooks/TD1_strawberry_student.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/01_Foundations/notebooks/TD1_strawberry_student.ipynb)
 - [Instructor version with discussion notes](01_Foundations/notebooks/TD1_strawberry_solution.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/01_Foundations/notebooks/TD1_strawberry_solution.ipynb)
 
-The 60-minute practical introduces eight fixed infrared window means, an 80/20
-training/test split and one small decision tree. Six short questions focus on
-the measurements, the tree's rules, prediction accuracy and mistakes. No coding
-is required. Every code cell contains at most ten lines and has an explanation
-above it. The notebook downloads a version-pinned data file automatically.
+The practical first shows the source table and two measured spectra, then
+visualises how the same spectra become eight fixed infrared window means.
+It introduces an 80/20 training/test split, a small decision tree and a neural
+network with one hidden layer of four neurons. Scaling for the network is
+learned from training samples only. Six written questions cover the inputs,
+the tree's rules, accuracy and the two models' mistakes. All code is supplied
+in cells of at most ten lines, with explanations above them. The notebook
+downloads a version-pinned data file automatically.
 See [data provenance and licence](datasets/strawberry/README.md).
 
 The earlier wine-based `TD1_classical_ML_*` notebooks remain available as legacy

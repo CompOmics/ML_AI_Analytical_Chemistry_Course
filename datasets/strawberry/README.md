@@ -33,6 +33,19 @@ the 784 training observations into 588 training and 196 validation observations,
 preserving the same 197 test observations. These are teaching splits rather
 than the original paper's validation design.
 
+Foundations displays the source table and two individual spectra before
+forming the eight features, then plots those same samples' window means.
+The source CSV mixes text labels and numeric measurements in its columns:
+`header=None` preserves the label row, and one `astype(float)` converts the
+remaining rows to numbers. The revised preparation gives the same features
+and sample groups as the Evaluation and Applications notebooks.
+
+Foundations fits a small decision tree and a neural network with eight inputs
+and one hidden layer of four neurons. The network's `StandardScaler` learns
+from the 784 training samples and applies the same transformation to the
+197 test samples. Both models have fixed teaching settings; their test results
+illustrate accuracy and different kinds of mistake rather than tune a model.
+
 The simplified Evaluation practical compares training and validation accuracy
 for a small tree, a deep tree and a random forest, then tests the model chosen
 using validation accuracy. Its code does not perform cross-validation or SVM

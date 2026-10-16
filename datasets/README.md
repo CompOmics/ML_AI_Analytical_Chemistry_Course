@@ -7,7 +7,8 @@ compressed snapshots provide backups of the strawberry and Tox21 data.
   The dataset contains 983 infrared spectra of fruit purées labelled Strawberry
   or NON-Strawberry, each with 235 measured wavenumbers. The practical removes
   two identically measured records with conflicting labels and forms eight
-  predefined window means. All code is
+  predefined window means. Source-table and spectrum plots introduce the data;
+  a small tree and a four-neuron network illustrate classification. All code is
   supplied; student exercises focus on interpretation. The dataset has its own
   CC BY-NC 3.0 licence, separate from the course-code licence.
 - **Current Part 3 (TD2):** the same strawberry data and eight fixed features,
