@@ -79,6 +79,13 @@ Foundations shows the training counts, importance per compound and equal
 class totals in a table. The importance for each compound in class c is
 `n_training / (2 * n_in_class_c)`. Rarer Active compounds therefore receive
 more importance while splits are learned; the number of compounds is unchanged.
+Evaluation also shows training/test accuracy at depths 1–12 after the model
+choice and its test check are fixed. The curve uses the same 3,482 training
+records and 1,161 test records, with balanced class importance at every depth.
+The plotted ordinary accuracy counts every compound equally, so it need not
+rise at every depth when training uses class-balancing importance. The curve
+is an overfitting illustration; selecting a depth from its test peak would
+require a new independent final test.
 
 Applications fits an isolation forest to **all training compounds**, including
 both assay classes. It learns usual descriptor patterns without assay targets.

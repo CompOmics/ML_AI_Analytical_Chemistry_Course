@@ -30,6 +30,8 @@ the fraction of test samples flagged.
 
 The notebook explicitly distinguishes these review flags from the class
 predictions and classification accuracy used in the earlier practicals.
+A one-feature random-cut example explains why a separated value can be
+isolated quickly, and why the forest combines route lengths over many trees.
 
 The exercise treats flags as prompts for follow-up. Neither a flag nor its
 absence certifies product purity. The reused classroom test set does not
@@ -57,3 +59,5 @@ patterns, not assay activity. Students inspect a flagged structure's descriptors
 and explain why unflagged does not mean safe. The notebook explicitly
 distinguishes this reference group from the Strawberry-only reference group
 in the strawberry practical. See [data preparation and provenance](../datasets/tox21/README.md).
+The same random-cut illustration and interpretation question explain isolation
+lengths, with the reference group kept distinct from assay activity.

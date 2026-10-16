@@ -12,18 +12,33 @@ Contents:
 - [Instructor version with discussion notes](notebooks/TD2_strawberry_solution.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/03_Evaluation/notebooks/TD2_strawberry_solution.ipynb)
 
 All code is supplied in short cells, each preceded by a plain-language explanation.
-Five written questions cover overfitting, fair model comparison, model choice
-and interpretation of mistakes. No coding or parameter changes are required.
+Seven written questions cover overfitting, fair pipeline comparison, a small
+CNN, model choice, mistakes and a tree-depth curve. No coding or parameter
+changes are required.
 The opening is a quick recap of Foundations: four setup cells prepare the same
 data and show one feature-table reminder. Students then move directly to the
 new training–validation–test split. The detailed source-table previews,
 spectrum plots and introductory feature question remain in Foundations.
 
 Using the same eight spectral summaries as Foundations, students fit a small
-tree, a deep tree and a random forest. They compare training and validation
-accuracy in a table and bar chart, choose using validation accuracy, then read
-the chosen model's test confusion matrix. Cross-validation, SVMs and statistical
-model comparisons are omitted from this introductory version.
+tree, a deep tree and a random forest. A worked three-tree example explains
+how varied sorting routes combine class-support estimates. Students then fit
+a small 1D CNN to the full 235-position spectra, with scaling learned only
+from training spectra. One local-window illustration explains its five-position
+filters, followed by a short layer-by-layer description. The network has 505
+trainable parameters and fixed settings: eight filters, pooling, a single
+output, 30 epochs and batches of 32.
+
+The comparison table records each input representation alongside training and
+validation accuracy. Students choose using validation results, then inspect
+the chosen model's test confusion matrix. This compares complete pipelines:
+CNN/forest differences cannot be attributed to architecture alone.
+
+After this choice and check, a line plot shows training and test accuracy for
+tree depths 1–12 on the same samples. It illustrates overfitting. The notebook
+explains that choosing a new depth from this test curve would require a new
+independent final test. Cross-validation, SVMs and statistical model comparisons
+remain outside this introductory version. The notebook has four figures.
 
 The 981 cleaned observations are divided into 588 training, 196 validation and
 197 test observations. Test membership matches Foundations; its reuse is a
@@ -43,13 +58,21 @@ scikit-learn diagnostic dataset and remain available as legacy exercises.
 - [Instructor notebook with suggested answers](notebooks/TD2_tox21_solution.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/03_Evaluation/notebooks/TD2_tox21_solution.ipynb)
 
 The same simple format, using DeepChem's public Tox21 data: all code supplied
-in cells of at most ten lines and five written questions. Four setup cells
+in cells of at most ten lines and six written questions. Four setup cells
 recap the data preparation from Foundations, with one descriptor-table reminder,
 before students begin the training–validation–test split and model comparison.
 Eight calculated molecular descriptors predict the SR-MMP assay result.
 Students compare a small tree, a deep tree and a random forest, then inspect
 the chosen model's missed Active results and false alarms. The notebook
 explains the unequal class sizes and the fixed class-balancing setting.
+Its random-forest explanation uses the same small support-averaging example
+and asks why varied trees help more than identical copies.
+After the chosen model's test check, a third figure plots training and test
+accuracy for depths 1–12. Each tree uses the same 3,482 training compounds,
+eight descriptors, balanced class importance and random seed. This is an
+overfitting illustration: choosing a depth from the test curve would require
+a new independent final test. The instructor copy includes the saved curve
+values and a matching interpretation answer.
 
 The Tox21 series shares one cleaned subset and test group. Evaluation divides
 the Foundations training group into 3,482 training and 1,161 validation records;

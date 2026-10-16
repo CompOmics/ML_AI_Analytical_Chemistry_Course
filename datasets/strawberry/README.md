@@ -39,8 +39,8 @@ Applications use a brief recap with four setup cells and a feature-table
 reminder, leaving the detailed data introduction in Foundations.
 The source CSV mixes text targets and numeric measurements in its columns:
 `header=None` preserves the target row, and one `astype(float)` converts the
-remaining rows to numbers. The same preparation and features are used in all
-three practicals.
+remaining rows to numbers. The same preparation and window means are reused
+throughout; Evaluation's CNN additionally uses the full ordered spectra.
 
 Foundations fits a small decision tree and a neural network with eight inputs
 and one hidden layer of four neurons. The network's `StandardScaler` learns
@@ -49,9 +49,21 @@ from the 784 training samples and applies the same transformation to the
 illustrate accuracy and different kinds of mistake rather than tune a model.
 
 The simplified Evaluation practical compares training and validation accuracy
-for a small tree, a deep tree and a random forest, then tests the model chosen
-using validation accuracy. Its code does not perform cross-validation or SVM
-scaling. Test outcomes were already seen in Foundations; their reuse is a
+for a small tree, a deep tree, a random forest and a small 1D CNN, then tests
+the model chosen using validation accuracy. The trees receive eight window
+means; the CNN receives the same samples' 235 measured positions. A training-only
+StandardScaler is fitted to those positions. Scaling does not use validation
+or test spectra. The code uses Keras 3.15.1 with CPU JAX 0.11.2, seed 42,
+eight five-position filters, pooling over four positions, flattening and one
+sigmoid output (505 trainable parameters). It fits for 30 epochs with batch
+size 32, using training targets only.
+
+After reporting the fixed model's test result, a training/test line plot over
+depths 1–12 illustrates overfitting in trees trained on the same 588 samples.
+It is not used to select a model. Selecting a depth from its test peak would
+require new independent test data for final confirmation.
+The code does not perform cross-validation or SVM scaling.
+Test outcomes were already seen in Foundations; their reuse is a
 classroom comparison rather than fresh independent validation. No additional
 source data or snapshot is needed for Evaluation.
 

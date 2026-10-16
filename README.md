@@ -57,8 +57,10 @@ the first cell.
 
 ### How the strawberry practicals connect
 
-Use these practicals in order. They share the same data preparation, eight
-infrared features and 197 test samples. Each adds one main idea:
+Use these practicals in order. They share the same data preparation and 197
+test samples. Trees and outlier detection use eight infrared window means;
+the Evaluation CNN additionally uses the full 235-position spectra.
+Each adds one main idea:
 
 | Practical | Main question | New idea |
 |---|---|---|
@@ -67,8 +69,8 @@ infrared features and 197 test samples. Each adds one main idea:
 | Applications | Which measurements are unusual compared with Strawberry examples? | Outlier flags and laboratory follow-up |
 
 All three run independently and provide all code in cells of at most ten lines.
-Foundations has six written interpretation questions; Evaluation and Applications
-each have five, focused on the new material. Students run the code unchanged
+Foundations has six written interpretation questions, Evaluation has seven,
+and Applications has five. Students run the code unchanged
 and write answers in text cells. Shared preparation is repeated so that no
 files or variables need to be transferred between notebooks.
 
@@ -105,9 +107,15 @@ exercise; use the strawberry notebook's introduction for the current practical.
 
 The practical starts with four short setup cells and a feature-table reminder,
 then moves to the training–validation–test split. It reuses the same cleaned
-strawberry data and eight fixed window means. Students compare a small tree, a deep tree and a random forest
-using training and validation accuracy, choose a model, and inspect its test
-mistakes. The code is supplied in short cells, with five written questions and
+strawberry data. Students compare a small tree, a deep tree and a random forest
+using eight window means, then add a small 1D CNN using the full 235-position
+spectra. Scaling for the CNN is learned from training spectra only. The table
+identifies each model's input, so students can distinguish a pipeline comparison
+from an architecture-only comparison. They choose using validation accuracy
+and inspect the selected model's test mistakes. A training/test line plot over
+tree depths follows the fixed choice as an overfitting illustration; choosing
+a depth from that curve would require a new independent final test.
+The code is supplied in short cells, with seven written questions and
 saved outputs. This introductory version does not include cross-validation,
 SVMs or statistical model comparisons.
 
@@ -142,8 +150,8 @@ notebook is the current practical.
 This series follows the same three-step progression with DeepChem's public
 Tox21 data. It uses eight readable molecular descriptors and one assay,
 SR-MMP. Every practical supplies all code in cells of at most ten lines.
-Foundations has nine interpretation questions; Evaluation and Applications
-each have five. The latter start with four setup cells and a descriptor-table
+Foundations has nine interpretation questions, Evaluation has six, and
+Applications has five. The latter two start with four setup cells and a descriptor-table
 reminder, then move to their new material. Instructor copies
 include suggested answers and saved outputs. Students do not write or change code.
 
