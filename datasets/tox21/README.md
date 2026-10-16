@@ -7,7 +7,7 @@ the **DeepChem-distributed Tox21 data**; they do not require installation of
 the DeepChem Python package. Internet access is needed for the supplied
 installation and loading cells.
 
-## Records, endpoint and cleaning
+## Records, target and cleaning
 
 The downloaded file contains 7,831 records, 12 assay-result columns, a
 `mol_id` and a SMILES structure string. All three practicals use only
@@ -23,7 +23,7 @@ The downloaded file contains 7,831 records, 12 assay-result columns, a
   A canonical-SMILES check found no identical structures repeated in this subset.
   Different structures can still share the same eight descriptor values.
 
-These labels describe this assay's recorded outcome. Inactive does not mean
+These targets describe this assay's recorded outcome. Inactive does not mean
 safe, and Active does not establish human toxicity. Other endpoints, assay
 conditions and exposure are outside this teaching exercise. This single-task
 subset is not the full Tox21 multitask benchmark.
@@ -47,10 +47,10 @@ its structure, rather than measured concentrations or assay responses.
 The RDKit release is pinned in a short installation cell. Structures are read
 as supplied; fragments, salts and charges are not removed. Descriptor choices
 are fixed teaching inputs, not chemical features optimised on test results.
-Neither `mol_id`, SMILES nor the assay label enters the feature table.
+Neither `mol_id`, SMILES nor the assay target enters the feature table.
 Foundations previews source records and draws the first four retained
-structures. A separate preview links source IDs and reference labels to the
-eight descriptor values, followed by a Mass/LogP plot coloured by assay label.
+structures. A separate preview links source IDs and recorded targets to the
+eight descriptor values, followed by a Mass/LogP plot coloured by assay target.
 Evaluation and Applications use a quick recap with four setup cells, retained
 record and class counts, and one descriptor-table reminder. They keep the same
 data preparation and features, leaving the detailed introduction in Foundations.
@@ -75,12 +75,16 @@ that model with a deep tree and a 100-tree random forest. Their fixed
 weight without changing record counts. Validation accuracy selects the model
 in the exercise; missed Active results and false alarms are also discussed.
 Accuracy alone does not establish usefulness for screening the rare class.
+Foundations shows the training counts, importance per compound and equal
+class totals in a table. The importance for each compound in class c is
+`n_training / (2 * n_in_class_c)`. Rarer Active compounds therefore receive
+more importance while splits are learned; the number of compounds is unchanged.
 
 Applications fits an isolation forest to **all training compounds**, including
-both assay classes. It learns usual descriptor patterns without assay labels.
+both assay classes. It learns usual descriptor patterns without assay targets.
 The fixed `contamination=0.05` setting places a boundary to flag about 5% of
 training reference records. It does not estimate toxicity prevalence. Flags
-and assay predictions answer different questions; the flag-by-assay-label
+and assay predictions answer different questions; the flag-by-target
 table is not a classifier confusion matrix.
 
 ## Pretrained molecular generation in Foundations
@@ -90,17 +94,26 @@ CDDD default model. CDDD encodes a SMILES structure into 512 learned values and
 decodes them back to a structure description. Its original task translates
 equivalent molecular representations; it is a translation autoencoder, rather
 than the variational autoencoder in the Gómez-Bombarelli molecular-design
-paper. It is not trained on the SR-MMP labels in this practical.
+paper. It is not trained on the SR-MMP targets in this practical.
 
-The example starts from aspirin, source record `TOX108`, which belongs to the
-original training partition. Twelve random perturbations of its latent
+The default example starts from aspirin, source record `TOX108`. A dropdown
+also offers paracetamol (`TOX6`) and ibuprofen (`TOX732`); all three belong to
+the original training partition. Students can choose a structure without
+editing code, then rerun the cells below the dropdown. Structure drawings
+identify the choices. All three were checked through reconstruction, generation
+and the eight-descriptor assay prediction pipeline.
+
+A 16-by-32 colour grid displays the 512 latent values. Its layout is a display
+choice, not molecular geometry; neighbouring squares are not neighbouring atoms.
+A second chart compares the first 20 values before and after a random change.
+The decoder receives all 512 values. Twelve random perturbations of the latent
 representation are decoded using NumPy's `default_rng(42)`, a noise standard
 deviation of 0.6, a beam width of 5 and a
 maximum decoding length of 120. These are fixed demonstration settings.
 The notebooks count invalid strings and repeated reconstructions before
 keeping distinct changed candidates. Canonical SMILES are compared with all
 readable structures in the downloaded file, including records without an
-SR-MMP label. This comparison does not establish novelty beyond that file or
+SR-MMP target. This comparison does not establish novelty beyond that file or
 exclude overlap with pretraining, and does not merge salts or tautomers.
 RDKit fingerprint Tanimoto scores describe structural-pattern overlap with the
 starting molecule; they do not predict equal assay activity.
@@ -109,11 +122,12 @@ The same eight descriptors are calculated for the proposals and supplied to
 the existing tree in the original feature order. The tree is not retrained,
 and generated candidates do not enter training or test accuracy calculations.
 Predicted Active or Inactive classes are assay hypotheses without measured
-candidate labels. Neither a valid structure nor an Inactive prediction
+candidate targets. Neither a valid structure nor an Inactive prediction
 establishes chemical feasibility or human safety.
 
 The installation cell pins `jax-cddd==0.1.0.post0`, CPU JAX 0.11.2, Flax
-0.12.10, Optax 0.2.8 and Orbax Checkpoint 0.11.32. The wrapper's dependency
+0.12.10, Optax 0.2.8, Orbax Checkpoint 0.11.32 and ipywidgets 8.1.9 for the
+selector. The wrapper's dependency
 metadata requests CUDA; installing the CPU dependencies first and the wrapper
 with `--no-deps` enables the supplied CPU inference workflow. Converted weights
 and the vocabulary download from the publisher's GitHub release on first use;
@@ -121,9 +135,12 @@ the package verifies their expected checksums. The approximately 200 MB weights
 are cached by the package and are not copied into this repository. Their SHA-256
 is `0c4bd08a593c78221c20506eca8e8b88b823b98e65ef3b3784ed4a63f266bd23`.
 An initial run needs the public model download as well as the data file.
+These implementation and provenance details are retained in instructor notes
+and this file. Student notebooks use a short sources-and-limits section.
 
 - [Winter et al., CDDD, Chemical Science (2019)](https://doi.org/10.1039/C8SC04175J).
 - [Original CDDD implementation and model](https://github.com/jrwnter/cddd).
+- [Class-balancing importance calculation](https://scikit-learn.org/stable/modules/generated/sklearn.utils.class_weight.compute_class_weight.html).
 - [Pinned JAX inference package](https://pypi.org/project/jax-cddd/0.1.0.post0/).
 - [Converted model weights and vocabulary](https://github.com/OlivierBeq/jax-cddd/releases/tag/model_weights).
 - [Gómez-Bombarelli et al., molecular design, ACS Central Science (2018)](https://doi.org/10.1021/acscentsci.7b00572).

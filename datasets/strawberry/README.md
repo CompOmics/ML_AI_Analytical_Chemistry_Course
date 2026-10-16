@@ -7,10 +7,10 @@ version-pinned CSV directly, using one short `pandas.read_csv` call. Internet
 access is required for their unchanged loading cells. For offline teaching, an
 instructor can adapt that call to read this local gzip file with `header=None`.
 
-## Measurements and labels
+## Measurements and targets
 
 The original CSV stores 983 spectra in columns and 235 wavenumbers in rows
-(approximately 899.327–1802.564 cm⁻¹). Its first row provides class labels:
+(approximately 899.327–1802.564 cm⁻¹). Its first row provides target classes:
 351 Strawberry and 632 NON-Strawberry. The first column contains wavenumbers.
 The numerical values are supplied spectral signals; their processing and
 absolute physical signal units are not established by this CSV.
@@ -21,9 +21,9 @@ supplier, harvest-year or replicate-group metadata are included. Positional
 sample IDs assigned by the notebooks do not identify physical specimens.
 
 Two records (`sample_0366` and `sample_0844`, using positional IDs) have exactly
-the same numerical spectrum but opposite class labels. The notebooks exclude
+the same numerical spectrum but opposite target classes. The notebooks exclude
 both ambiguous records, leaving 981 observations (350 Strawberry and 631
-NON-Strawberry). They do not choose which label is correct. This eliminates
+NON-Strawberry). They do not choose which target is correct. This eliminates
 exact numerical overlap, but does not establish
 independence of physical specimens. Eight predefined, contiguous 113 cm⁻¹
 windows cover 899–1803 cm⁻¹. Their means are teaching summaries rather than
@@ -37,8 +37,8 @@ Foundations displays the source table and two individual spectra before forming
 the eight features, then plots those same samples' window means. Evaluation and
 Applications use a brief recap with four setup cells and a feature-table
 reminder, leaving the detailed data introduction in Foundations.
-The source CSV mixes text labels and numeric measurements in its columns:
-`header=None` preserves the label row, and one `astype(float)` converts the
+The source CSV mixes text targets and numeric measurements in its columns:
+`header=None` preserves the target row, and one `astype(float)` converts the
 remaining rows to numbers. The same preparation and features are used in all
 three practicals.
 
@@ -56,12 +56,12 @@ classroom comparison rather than fresh independent validation. No additional
 source data or snapshot is needed for Evaluation.
 
 The Applications practical reuses the Foundations split. Its isolation forest
-learns only from the 280 labelled Strawberry training samples, without using
+learns only from the 280 Strawberry training samples, without using
 the test samples or teaching examples of NON-Strawberry. A fixed
 `contamination=0.05` setting places the flagging boundary using the training
 reference samples; it does not estimate adulteration prevalence. The detector
 then flags measurements in the same 197-sample test group. Reference test
-labels are revealed afterwards to discuss flagged authentic samples and
+targets are revealed afterwards to discuss flagged authentic samples and
 NON-Strawberry samples that escaped a flag. Reuse of this test group remains
 a classroom demonstration, not independent validation. Flags indicate
 follow-up priorities rather than product authenticity or adulterant identity.

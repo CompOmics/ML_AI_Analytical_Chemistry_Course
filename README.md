@@ -49,8 +49,7 @@ provide short code cells, plain-language explanations and written questions.
 Strawberry Foundations previews the source table and plots spectra before and
 after window averaging. Strawberry Evaluation and Applications use a quick
 recap with four setup cells, then focus on their new questions.
-Tox21 Foundations shows source records, example structures, a labelled
-descriptor table and a plot of two descriptor values. Its Evaluation and
+Tox21 Foundations shows source records, example structures, a descriptor table with recorded targets and a plot of two descriptor values. Its Evaluation and
 Applications notebooks use the same quick-recap approach as the strawberry series.
 The other student notebooks contain TODO code cells. They use widely available packages
 (scikit-learn, pandas, numpy, matplotlib); any extra package is installed in
@@ -75,7 +74,7 @@ files or variables need to be transferred between notebooks.
 
 Evaluation takes 196 of the original 784 training samples for validation,
 leaving 588 for fitting. Applications returns to that original training group
-and uses its 280 labelled Strawberry samples as the detector's reference.
+and uses its 280 samples with a Strawberry target as the detector's reference.
 The test group stays the same throughout; its reuse supports teaching rather
 than fresh independent validation. Applications reports review flags, which
 have a different meaning from the class predictions in the first two practicals.
@@ -125,7 +124,7 @@ The earlier `TD2_evaluation_*` notebooks remain available as legacy material.
 The practical uses the same strawberry data and eight window means. Four
 setup cells recap the preparation from Foundations, then students choose
 the Strawberry reference group and begin outlier detection.
-One isolation forest learns from the 280 labelled Strawberry training samples
+One isolation forest learns from the 280 Strawberry training samples
 and flags unusual measurements among the same 197 test samples used earlier.
 All code is supplied in cells of at most ten lines. Five written questions focus
 on choosing a reference group, interpreting flags, inspecting an example and
@@ -154,14 +153,24 @@ include suggested answers and saved outputs. Students do not write or change cod
 | Evaluation: overfitting and model comparison | [Student](03_Evaluation/notebooks/TD2_tox21_student.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/03_Evaluation/notebooks/TD2_tox21_student.ipynb) | [Instructor](03_Evaluation/notebooks/TD2_tox21_solution.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/03_Evaluation/notebooks/TD2_tox21_solution.ipynb) |
 | Applications: outlier detection | [Student](04_Applications/notebooks/TD3_tox21_student.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/04_Applications/notebooks/TD3_tox21_student.ipynb) | [Instructor](04_Applications/notebooks/TD3_tox21_solution.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/04_Applications/notebooks/TD3_tox21_solution.ipynb) |
 
-Foundations also loads a pretrained CDDD molecular autoencoder, reconstructs
-aspirin from the training group, and decodes twelve changed latent
-representations. Students inspect invalid outputs, repeated structures,
+Foundations introduces the Tox21 experiments and explains the SR-MMP target
+before loading the data. It illustrates tree learning as a sorting route and
+shows how class-balancing importance differs from compound counts.
+
+For molecular generation, students choose aspirin, paracetamol or ibuprofen
+from a dropdown, inspect the autoencoder's 512 learned values as a colour grid,
+and compare values before and after random changes. The notebook reconstructs
+the chosen starting structure and decodes twelve changed latent representations.
+Students inspect invalid outputs, repeated structures,
 fingerprint similarity and matches against the downloaded Tox21 file. The
 existing small tree predicts SR-MMP classes for the valid candidates using
-the same eight descriptors. These predictions have no new measured reference
-labels and do not establish overall toxicity or safety. The standard CPU
+the same eight descriptors. These predictions have no new measured
+targets and do not establish overall toxicity or safety. The standard CPU
 runtime is sufficient; the model weights download automatically on first use.
+Student notebooks retain concise sources and interpretation limits; package
+versions, checksums and other provenance details are kept in instructor notes
+and the data documentation. Both practical series use target terminology in
+the prose, tables and code variables, and explain rounding with numerical examples.
 
 The notebooks calculate descriptors with a pinned RDKit release and read
 DeepChem's source CSV directly; installing the DeepChem Python package is not

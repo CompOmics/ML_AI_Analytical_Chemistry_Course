@@ -20,8 +20,8 @@ in Google Colab with the standard CPU runtime.
 
 It reuses the same cleaned strawberry data, eight infrared window means and
 197-sample test partition as Foundations and Evaluation. One isolation forest
-learns from 280 labelled Strawberry training samples. Students interpret its
-flags, inspect a flagged example and compare flags with reference labels.
+learns from 280 Strawberry training samples. Students interpret its
+flags, inspect a flagged example and compare flags with recorded targets.
 These reference samples come from the original 784-sample Foundations training
 group, including the samples used for validation in Evaluation. The flagging
 setting is chosen in advance; the boundary is learned to flag about 5% of the
