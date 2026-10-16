@@ -46,9 +46,12 @@ Click an **Open in Colab** button below or at the top of a guided notebook's
 GitHub preview, then run the cells top to bottom. The current Foundations,
 Evaluation and Applications practicals are written for students who do not program. They
 provide short code cells, plain-language explanations and written questions.
-The strawberry notebooks preview the source table and plot spectra before and
-after window averaging. The Tox21 notebooks show source records, example
-structures, a labelled descriptor table and a plot of two descriptor values.
+Strawberry Foundations previews the source table and plots spectra before and
+after window averaging. Strawberry Evaluation and Applications use a quick
+recap with four setup cells, then focus on their new questions.
+Tox21 Foundations shows source records, example structures, a labelled
+descriptor table and a plot of two descriptor values. Its Evaluation and
+Applications notebooks use the same quick-recap approach as the strawberry series.
 The other student notebooks contain TODO code cells. They use widely available packages
 (scikit-learn, pandas, numpy, matplotlib); any extra package is installed in
 the first cell.
@@ -64,8 +67,9 @@ infrared features and 197 test samples. Each adds one main idea:
 | Evaluation | Does a model that fits training samples well also work elsewhere? | Overfitting, validation and model choice |
 | Applications | Which measurements are unusual compared with Strawberry examples? | Outlier flags and laboratory follow-up |
 
-All three run independently, provide all code in cells of at most ten lines,
-and have six written interpretation questions. Students run the code unchanged
+All three run independently and provide all code in cells of at most ten lines.
+Foundations has six written interpretation questions; Evaluation and Applications
+each have five, focused on the new material. Students run the code unchanged
 and write answers in text cells. Shared preparation is repeated so that no
 files or variables need to be transferred between notebooks.
 
@@ -100,10 +104,11 @@ exercise; use the strawberry notebook's introduction for the current practical.
 - [Student Colab notebook](03_Evaluation/notebooks/TD2_strawberry_student.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/03_Evaluation/notebooks/TD2_strawberry_student.ipynb)
 - [Instructor version with discussion notes](03_Evaluation/notebooks/TD2_strawberry_solution.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/03_Evaluation/notebooks/TD2_strawberry_solution.ipynb)
 
-The practical reuses the same cleaned strawberry data and eight fixed
-window means. Students compare a small tree, a deep tree and a random forest
+The practical starts with four short setup cells and a feature-table reminder,
+then moves to the training–validation–test split. It reuses the same cleaned
+strawberry data and eight fixed window means. Students compare a small tree, a deep tree and a random forest
 using training and validation accuracy, choose a model, and inspect its test
-mistakes. The code is supplied in short cells, with six written questions and
+mistakes. The code is supplied in short cells, with five written questions and
 saved outputs. This introductory version does not include cross-validation,
 SVMs or statistical model comparisons.
 
@@ -117,10 +122,12 @@ The earlier `TD2_evaluation_*` notebooks remain available as legacy material.
 - [Student Colab notebook](04_Applications/notebooks/TD3_strawberry_student.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/04_Applications/notebooks/TD3_strawberry_student.ipynb)
 - [Instructor version with discussion notes](04_Applications/notebooks/TD3_strawberry_solution.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/04_Applications/notebooks/TD3_strawberry_solution.ipynb)
 
-The practical uses the same strawberry data and eight window means.
+The practical uses the same strawberry data and eight window means. Four
+setup cells recap the preparation from Foundations, then students choose
+the Strawberry reference group and begin outlier detection.
 One isolation forest learns from the 280 labelled Strawberry training samples
 and flags unusual measurements among the same 197 test samples used earlier.
-All code is supplied in cells of at most ten lines. Six written questions focus
+All code is supplied in cells of at most ten lines. Five written questions focus
 on choosing a reference group, interpreting flags, inspecting an example and
 deciding what laboratory follow-up is needed. Both versions include saved outputs.
 
@@ -137,7 +144,8 @@ This series follows the same three-step progression with DeepChem's public
 Tox21 data. It uses eight readable molecular descriptors and one assay,
 SR-MMP. Every practical supplies all code in cells of at most ten lines.
 Foundations has nine interpretation questions; Evaluation and Applications
-each have six. Instructor copies
+each have five. The latter start with four setup cells and a descriptor-table
+reminder, then move to their new material. Instructor copies
 include suggested answers and saved outputs. Students do not write or change code.
 
 | Practical | Student notebook | Instructor notebook |

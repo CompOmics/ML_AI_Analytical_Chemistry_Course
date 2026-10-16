@@ -12,9 +12,11 @@ Contents:
 - [Instructor notebook with suggested answers](notebooks/TD3_strawberry_solution.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/04_Applications/notebooks/TD3_strawberry_solution.ipynb)
 
 All code is supplied in short cells of at most ten lines, with explanations,
-four figures and six written interpretation questions. The source table and
-two example spectra introduce the eight-feature transformation before outlier
-screening. The notebook runs independently in Google Colab with the standard CPU runtime.
+two figures and five written interpretation questions. Four setup cells recap
+the data preparation from Foundations, with one feature-table reminder, before
+students choose the Strawberry reference group. The two figures focus on a
+flagged sample and the overall screening results. The notebook runs independently
+in Google Colab with the standard CPU runtime.
 
 It reuses the same cleaned strawberry data, eight infrared window means and
 197-sample test partition as Foundations and Evaluation. One isolation forest
@@ -42,9 +44,10 @@ and slides also cover broader application examples.
 - [Student notebook](notebooks/TD3_tox21_student.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/04_Applications/notebooks/TD3_tox21_student.ipynb)
 - [Instructor notebook with suggested answers](notebooks/TD3_tox21_solution.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/04_Applications/notebooks/TD3_tox21_solution.ipynb)
 
-All code is supplied in cells of at most ten lines, with four figures and six
-written interpretation questions. Source records, example structures and a
-labelled descriptor table introduce the data before outlier screening.
+All code is supplied in cells of at most ten lines, with two figures and five
+written interpretation questions. Four setup cells recap the data preparation
+from Foundations, with one descriptor-table reminder, before students choose
+the reference group and begin outlier screening.
 It reuses the eight Tox21
 descriptors and 1,161 test compounds from Foundations and Evaluation.
 

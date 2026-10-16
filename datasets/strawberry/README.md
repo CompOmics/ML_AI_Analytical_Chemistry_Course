@@ -33,8 +33,10 @@ the 784 training observations into 588 training and 196 validation observations,
 preserving the same 197 test observations. These are teaching splits rather
 than the original paper's validation design.
 
-Each strawberry notebook displays the source table and two individual spectra
-before forming the eight features, then plots those same samples' window means.
+Foundations displays the source table and two individual spectra before forming
+the eight features, then plots those same samples' window means. Evaluation and
+Applications use a brief recap with four setup cells and a feature-table
+reminder, leaving the detailed data introduction in Foundations.
 The source CSV mixes text labels and numeric measurements in its columns:
 `header=None` preserves the label row, and one `astype(float)` converts the
 remaining rows to numbers. The same preparation and features are used in all

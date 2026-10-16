@@ -12,10 +12,12 @@ Contents:
 - [Instructor version with discussion notes](notebooks/TD2_strawberry_solution.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/03_Evaluation/notebooks/TD2_strawberry_solution.ipynb)
 
 All code is supplied in short cells, each preceded by a plain-language explanation.
-Six written questions cover overfitting, fair model comparison, model choice
+Five written questions cover overfitting, fair model comparison, model choice
 and interpretation of mistakes. No coding or parameter changes are required.
-The opening tables show the source file and the prepared measurements, with
-plots of two spectra before and after the eight-feature transformation.
+The opening is a quick recap of Foundations: four setup cells prepare the same
+data and show one feature-table reminder. Students then move directly to the
+new training–validation–test split. The detailed source-table previews,
+spectrum plots and introductory feature question remain in Foundations.
 
 Using the same eight spectral summaries as Foundations, students fit a small
 tree, a deep tree and a random forest. They compare training and validation
@@ -41,9 +43,9 @@ scikit-learn diagnostic dataset and remain available as legacy exercises.
 - [Instructor notebook with suggested answers](notebooks/TD2_tox21_solution.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/03_Evaluation/notebooks/TD2_tox21_solution.ipynb)
 
 The same simple format, using DeepChem's public Tox21 data: all code supplied
-in cells of at most ten lines and six written questions. Source records,
-four example structures, a labelled descriptor table and a two-feature plot
-introduce the data before modelling.
+in cells of at most ten lines and five written questions. Four setup cells
+recap the data preparation from Foundations, with one descriptor-table reminder,
+before students begin the training–validation–test split and model comparison.
 Eight calculated molecular descriptors predict the SR-MMP assay result.
 Students compare a small tree, a deep tree and a random forest, then inspect
 the chosen model's missed Active results and false alarms. The notebook
