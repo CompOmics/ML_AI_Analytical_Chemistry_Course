@@ -6,6 +6,40 @@ Contents:
 - `slides/resources/` - rendered PDF and SVG figures.
 - `notebooks/` - TD notebooks, student and instructor/solution versions.
 
+## Additional lecture slides: failure modes
+
+- [Editable PowerPoint slides: visual revision](slides/Part3_Failure_modes_visual.pptx).
+- [Slide outline and teaching notes](slides/Part3_Failure_modes_visual.md).
+
+Eleven additional slides explain underfitting, overfitting, bias in the data,
+out-of-distribution predictions and information leakage through fresh
+analytical-chemistry examples.
+Simulated calibration standards show the effects of model flexibility and
+extrapolation. A hypothetical contaminant-screening example compares drinking
+water with river water to show how an overall accuracy can hide poor performance
+for one matrix. Three visual leakage slides use molecular structures,
+schematic repeat scans and preparation workflows. The first compares reuse
+of a training molecule with prediction of a close analogue: phenol and
+4-methylphenol share a core structure, with the added methyl group highlighted.
+It distinguishes direct overlap from testing familiar chemistry. Similarity
+alone is not leakage, but a claim about new chemical families needs a split
+that keeps close analogues together. The next diagrams show repeat scans of
+one phenol specimen crossing the split and test data influencing learned
+preprocessing. They distinguish legitimate validation-based
+model choice from using the final test to make choices. A comparison slide
+connects each failure to a useful next check, and five short cases invite
+interpretation. Speaker notes include suggested answers, sources and the
+distinction between data bias and statistical bias.
+The charts, tables, molecular bonds, atom labels and arrows remain editable.
+RDKit validates the molecular graphs and supplies their coordinates. The
+teaching notes include the compound identities, SMILES and source details.
+
+![Training molecules compared with an identical compound and a close analogue](slides/resources/information_leakage_preview.png)
+
+Suggested placement: replace slides 4–5 of the main deck with this sequence,
+after the Failure modes divider, then continue with the existing generalisation
+slide. The original PowerPoint, Markdown outline and PDF remain separate.
+
 ## Current practical: strawberry model evaluation
 
 - [Student Colab notebook](notebooks/TD2_strawberry_student.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/03_Evaluation/notebooks/TD2_strawberry_student.ipynb)
@@ -35,7 +69,7 @@ the chosen model's test confusion matrix. This compares complete pipelines:
 CNN/forest differences cannot be attributed to architecture alone.
 
 After this choice and check, a line plot shows training and test accuracy for
-tree depths 1–12 on the same samples. It illustrates overfitting. The notebook
+tree depths 1–30 on the same samples. It illustrates overfitting. The notebook
 explains that choosing a new depth from this test curve would require a new
 independent final test. Cross-validation, SVMs and statistical model comparisons
 remain outside this introductory version. The notebook has four figures.
@@ -68,7 +102,7 @@ explains the unequal class sizes and the fixed class-balancing setting.
 Its random-forest explanation uses the same small support-averaging example
 and asks why varied trees help more than identical copies.
 After the chosen model's test check, a third figure plots training and test
-accuracy for depths 1–12. Each tree uses the same 3,482 training compounds,
+accuracy for depths 1–30. Each tree uses the same 3,482 training compounds,
 eight descriptors, balanced class importance and random seed. This is an
 overfitting illustration: choosing a depth from the test curve would require
 a new independent final test. The instructor copy includes the saved curve
