@@ -1,201 +1,250 @@
 # Machine Learning and AI for Analytical Chemistry
 
-Course materials for the M2 teaching unit "Machine Learning and AI for
-Analytical Chemistry" (3 ECTS, 15 h CM / 6 h TD), Master 2 Chimie - Sciences
-analytiques.
+Course materials for the M2 teaching unit, Master 2 Chimie — Sciences analytiques
+(3 ECTS, 15 h lectures / 6 h practicals).
 
-Coordinator: Lennart Martens. Instructors: Lennart Martens, Jérôme Pansanel.
+Coordinator: Lennart Martens. Instructors: Lennart Martens, Robbin Bouwmeester and Jérôme Pansanel.
 
-## How the repository is organised
+## Getting started
 
-Each part has its own folder with three subfolders:
+- Open the materials for your day below. The course runs over five days, with Foundations spread across the first two.
+- Complete both the Strawberry and Tox21 practical series, in the order Foundations → Evaluation → Applications.
+- Work through each Strawberry practical together with the instructor, then complete the corresponding Tox21 practical independently to apply what you have learned.
+- Click an Open in Colab button to run a practical without installing anything locally. The six current practicals provide all code; run the cells and answer the interpretation questions in words.
+- Save your own notebook copy to keep your answers. You can also fork this repository if you want an editable copy of all course materials.
+- Complete the Foundations quiz after day 2, the Evaluation quiz after day 3 and the Applications quiz after day 4. Each quiz follows the lecture and both corresponding practicals.
 
-- `notes/` — written lecture notes in Markdown.
-- `slides/` — presentation decks in PowerPoint (.pptx), each with a Markdown
-  equivalent (.md) carrying the same slide-by-slide content. A `resources/`
-  subfolder next to each deck keeps the rendered PDF and any SVG figures
-  created for that deck, under meaningful filenames.
-- `notebooks/` — hands-on tutorial (TD) notebooks in Jupyter/Colab (.ipynb),
-  each provided as a student version and an instructor/solution version. The
-  current strawberry and Tox21 practicals provide all code and interpretation response
-  cells; the other student notebooks contain TODO code cells.
+## Grading
 
-```
-ML_AI_Analytical_Chemistry_Course/
-  01_Foundations/      6 h CM + 1 h TD
-  02_Data/             2 h CM
-  03_Evaluation/       3 h CM + 1 h TD
-  04_Applications/     4 h CM + 1 h TD
-  05_LLM_Tools/        3 h TD
-  assessment/          assessed project brief, rubric, template notebook
-  datasets/            small datasets or download scripts used in the TDs
-```
+The three quizzes together count for 40% of the final mark. The written exam
+counts for the remaining 60%. The LLM-assisted project is part of the day 5
+practical.
 
-## Status
 
-Complete. All five parts are built: lecture notes (Markdown), slide decks (PPTX +
-Markdown equivalent), SVG figures and rendered PDFs in each deck's `resources/`,
-and the TD notebooks (student + solution) for Parts 1, 3, 4 and 5. The assessed
-project (brief, rubric, student template, and a worked Option A solution) is in
-`assessment/`. All solution notebooks were executed end to end without error.
+## Course overview
 
-## Running the notebooks
+| Day | Main question | Materials | Quiz |
+|---|---|---|---|
+| 1. Foundations | How does a model learn to predict from data? | [Lectures and practicals](#day-1-foundations) | Foundations quiz follows day 2 |
+| 2. Foundations and Data | How do neural networks learn, and how do we prepare and reuse data? | [Lectures and practicals](#day-2-foundations-and-data) | [Foundations quiz](https://forms.gle/EYMPYgqdB4GiHHZN7) |
+| 3. Evaluation | Which model should we trust on new examples? | [Lectures and practicals](#day-3-evaluation) | [Evaluation quiz](https://forms.gle/NrJCVNiXqYFhpYPM9) |
+| 4. Applications | Which measurements or compounds need a closer look? | [Lectures and practicals](#day-4-applications) | [Applications quiz](https://forms.gle/nnajgJVD9WouWYkM7) |
+| 5. LLM tools | How can LLMs support research while we check their outputs? | [Lectures and practical](#day-5-llm-tools) | — |
 
-The notebooks are designed for Google Colab (no local installation needed).
-Click an **Open in Colab** button below or at the top of a guided notebook's
-GitHub preview, then run the cells top to bottom. The current Foundations,
-Evaluation and Applications practicals are written for students who do not program. They
-provide short code cells, plain-language explanations and written questions.
-Strawberry Foundations previews the source table and plots spectra before and
-after window averaging. Strawberry Evaluation and Applications use a quick
-recap with four setup cells, then focus on their new questions.
-Tox21 Foundations shows source records, example structures, a descriptor table with recorded targets and a plot of two descriptor values. Its Evaluation and
-Applications notebooks use the same quick-recap approach as the strawberry series.
-The other student notebooks contain TODO code cells. They use widely available packages
-(scikit-learn, pandas, numpy, matplotlib); any extra package is installed in
-the first cell.
+[Grading](#grading) · [Datasets](#datasets) · [Earlier materials](#earlier-materials)
 
-### How the strawberry practicals connect
+### Day 1: Foundations
 
-Use these practicals in order. They share the same data preparation and 197
-test samples. Trees and outlier detection use eight infrared window means;
-the Evaluation CNN additionally uses the full 235-position spectra.
-Each adds one main idea:
+<details>
+<summary>Introduction, regression and Foundations practicals</summary>
 
-| Practical | Main question | New idea |
+#### Lectures
+
+| Topic | Slides |
+|---|---|
+| Introduction to machine learning | [PowerPoint](01_Foundations/slides/1_1_introduction.pptx) |
+| Regression | [PowerPoint](01_Foundations/slides/1_2_regression.pptx) |
+| Logistic regression | [PowerPoint](01_Foundations/slides/1_3_logistic_regression.pptx) |
+| Foundations overview deck, covering days 1–2 | [PowerPoint](01_Foundations/slides/Part1_Foundations_slides.pptx) · [PDF](01_Foundations/slides/resources/Part1_Foundations_slides.pdf) |
+
+[Lecture notes](01_Foundations/notes/Part1_Foundations_notes.md) · [Overview slide outline](01_Foundations/slides/Part1_Foundations_slides.md) · [Figures](01_Foundations/slides/resources/)
+
+#### Practicals
+
+Begin with the data, features and small decision tree in the Strawberry notebook,
+working through the steps together with the instructor. Then complete the
+corresponding steps in the Tox21 notebook independently. Continue both notebooks
+on day 2 for neural networks and molecular generation.
+
+| Practical and format | Student notebook | Run the practical | Answers |
+|---|---|---|---|
+| Strawberry (guided): is this strawberry purée? | [Notebook](01_Foundations/notebooks/TD1_strawberry_student.ipynb) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/01_Foundations/notebooks/TD1_strawberry_student.ipynb) | [Notebook with answers](01_Foundations/notebooks/TD1_strawberry_solution.ipynb) · [Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/01_Foundations/notebooks/TD1_strawberry_solution.ipynb) |
+| Tox21 (independent): predict activity and propose molecules | [Notebook](01_Foundations/notebooks/TD1_tox21_student.ipynb) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/01_Foundations/notebooks/TD1_tox21_student.ipynb) | [Notebook with answers](01_Foundations/notebooks/TD1_tox21_solution.ipynb) · [Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/01_Foundations/notebooks/TD1_tox21_solution.ipynb) |
+
+#### Continue on day 2
+
+[Foundations continued and Data](#day-2-foundations-and-data). The Foundations
+quiz follows the second day.
+
+[Browse all Foundations materials](01_Foundations/)
+
+</details>
+
+### Day 2: Foundations and Data
+
+<details>
+<summary>Neural networks, Data, continued practicals and Foundations quiz</summary>
+
+#### Lectures
+
+| Topic | Slides |
+|---|---|
+| Neural networks | [PDF](01_Foundations/slides/2_1_neural-networks.pdf) |
+| Convolutional neural networks | [PDF](01_Foundations/slides/2_2_convolutional-neural-networks.pdf) |
+| Recurrent neural networks and transformers | [PDF](01_Foundations/slides/2_3_recurrent-neural-networks-transformers.pdf) |
+| Data: quality, representations, repositories, formats and reuse | [PowerPoint](02_Data/slides/Part2_Data_slides.pptx) · [PDF](02_Data/slides/resources/Part2_Data_slides.pdf) |
+
+Foundations: [Lecture notes](01_Foundations/notes/Part1_Foundations_notes.md) · [Overview slide outline](01_Foundations/slides/Part1_Foundations_slides.md) · [Figures](01_Foundations/slides/resources/)
+
+Data: [Lecture notes](02_Data/notes/Part2_Data_notes.md) · [Slide outline](02_Data/slides/Part2_Data_slides.md) · [Figures](02_Data/slides/resources/) · [Module overview](02_Data/README.md)
+
+#### Continue the Foundations practicals
+
+Continue both notebooks using your saved answers from day 1. Together with the
+instructor, compare a small neural network with the tree in the Strawberry
+practical. Independently complete the Tox21 practical, using a pretrained
+autoencoder to propose related molecules and predict their assay classes.
+
+| Practical and format | Student notebook | Continue in Colab | Answers |
+|---|---|---|---|
+| Strawberry (guided) | [Notebook](01_Foundations/notebooks/TD1_strawberry_student.ipynb) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/01_Foundations/notebooks/TD1_strawberry_student.ipynb) | [Notebook with answers](01_Foundations/notebooks/TD1_strawberry_solution.ipynb) · [Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/01_Foundations/notebooks/TD1_strawberry_solution.ipynb) |
+| Tox21 (independent) | [Notebook](01_Foundations/notebooks/TD1_tox21_student.ipynb) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/01_Foundations/notebooks/TD1_tox21_student.ipynb) | [Notebook with answers](01_Foundations/notebooks/TD1_tox21_solution.ipynb) · [Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/01_Foundations/notebooks/TD1_tox21_solution.ipynb) |
+
+#### End-of-day quiz
+
+[Take the Foundations quiz — five questions](https://forms.gle/EYMPYgqdB4GiHHZN7)
+
+[Browse all Foundations materials](01_Foundations/) · [Browse all Data materials](02_Data/)
+
+</details>
+
+### Day 3: Evaluation
+
+<details>
+<summary>Lecture slides, practicals and quiz</summary>
+
+#### Lectures
+
+| Topic | Slides |
+|---|---|
+| Evaluation of trained models | [PowerPoint](03_Evaluation/slides/Part3_Evaluation_slides.pptx) · [PDF](03_Evaluation/slides/resources/Part3_Evaluation_slides.pdf) |
+| Failure modes: underfitting, overfitting, bias, out of distribution and information leakage | [Visual PowerPoint supplement](03_Evaluation/slides/Part3_Failure_modes_visual.pptx) · [Slide outline and teaching notes](03_Evaluation/slides/Part3_Failure_modes_visual.md) |
+
+[Lecture notes](03_Evaluation/notes/Part3_Evaluation_notes.md) · [Main slide outline](03_Evaluation/slides/Part3_Evaluation_slides.md) · [Figures](03_Evaluation/slides/resources/)
+
+#### Practicals
+
+Compare models using training and validation results, then check the fixed
+choice on test records. Work through the Strawberry practical together with the
+instructor, then complete the Tox21 practical independently. Tree-depth plots
+illustrate overfitting. The Strawberry practical also compares a small CNN using
+the full spectra.
+
+| Practical and format | Student notebook | Run the practical | Answers |
+|---|---|---|---|
+| Strawberry (guided): which model should we trust? | [Notebook](03_Evaluation/notebooks/TD2_strawberry_student.ipynb) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/03_Evaluation/notebooks/TD2_strawberry_student.ipynb) | [Notebook with answers](03_Evaluation/notebooks/TD2_strawberry_solution.ipynb) · [Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/03_Evaluation/notebooks/TD2_strawberry_solution.ipynb) |
+| Tox21 (independent): compare models and inspect mistakes | [Notebook](03_Evaluation/notebooks/TD2_tox21_student.ipynb) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/03_Evaluation/notebooks/TD2_tox21_student.ipynb) | [Notebook with answers](03_Evaluation/notebooks/TD2_tox21_solution.ipynb) · [Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/03_Evaluation/notebooks/TD2_tox21_solution.ipynb) |
+
+#### End-of-day quiz
+
+[Take the Evaluation quiz — five questions](https://forms.gle/NrJCVNiXqYFhpYPM9)
+
+[Practical guidance](03_Evaluation/README.md) · [Browse all Evaluation materials](03_Evaluation/)
+
+</details>
+
+### Day 4: Applications
+
+<details>
+<summary>Lecture slides, practicals and quiz</summary>
+
+#### Lectures
+
+| Topic | Slides |
+|---|---|
+| Applications in analytical chemistry: retention, fragmentation, identification, ion mobility and NMR | [PowerPoint](04_Applications/slides/Part4_Applications_slides.pptx) · [PDF](04_Applications/slides/resources/Part4_Applications_slides.pdf) |
+| CompOmics applications | [PowerPoint](04_Applications/slides/4_Applications_compomics.pptx) |
+
+[Lecture notes](04_Applications/notes/Part4_Applications_notes.md) · [Slide outline](04_Applications/slides/Part4_Applications_slides.md) · [Figures](04_Applications/slides/resources/)
+
+#### Practicals
+
+Use an isolation forest to flag unusual measurements or descriptor patterns.
+Work through the Strawberry practical together with the instructor, then complete
+the Tox21 practical independently. Interpret the flags and decide what laboratory
+follow-up is needed. A flag requests review; its presence or absence does not
+establish purity or safety.
+
+| Practical and format | Student notebook | Run the practical | Answers |
+|---|---|---|---|
+| Strawberry (guided): which purées need a closer look? | [Notebook](04_Applications/notebooks/TD3_strawberry_student.ipynb) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/04_Applications/notebooks/TD3_strawberry_student.ipynb) | [Notebook with answers](04_Applications/notebooks/TD3_strawberry_solution.ipynb) · [Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/04_Applications/notebooks/TD3_strawberry_solution.ipynb) |
+| Tox21 (independent): which compounds look unusual? | [Notebook](04_Applications/notebooks/TD3_tox21_student.ipynb) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/04_Applications/notebooks/TD3_tox21_student.ipynb) | [Notebook with answers](04_Applications/notebooks/TD3_tox21_solution.ipynb) · [Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/04_Applications/notebooks/TD3_tox21_solution.ipynb) |
+
+#### End-of-day quiz
+
+[Take the Applications quiz — five questions](https://forms.gle/nnajgJVD9WouWYkM7)
+
+[Practical guidance](04_Applications/README.md) · [Browse all Applications materials](04_Applications/)
+
+</details>
+
+### Day 5: LLM tools
+
+<details>
+<summary>Lecture slides and practical</summary>
+
+Use LLMs to support research while documenting prompts, checking outputs and
+keeping responsibility for the analysis.
+
+| Topic | Slides |
+|---|---|
+| Recurrent neural networks and transformers | [PowerPoint](05_LLM_Tools/slides/5_1_recurrent-neural-networks-transformers.pptx) |
+| Foundation models | [PowerPoint](05_LLM_Tools/slides/5_2_foundation-models.pptx) |
+| LLMs as research tools: overview | [PowerPoint](05_LLM_Tools/slides/Part5_LLM_slides.pptx) · [PDF](05_LLM_Tools/slides/resources/Part5_LLM_slides.pdf) |
+
+- [Figures](05_LLM_Tools/slides/resources/)
+
+| Practical | Student notebook | Run the practical | Answers |
+|---|---|---|---|
+| LLMs as research tools | [Notebook](05_LLM_Tools/notebooks/TD4_LLM_tools_student.ipynb) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/05_LLM_Tools/notebooks/TD4_LLM_tools_student.ipynb) | [Notebook with answers](05_LLM_Tools/notebooks/TD4_LLM_tools_solution.ipynb) · [Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/05_LLM_Tools/notebooks/TD4_LLM_tools_solution.ipynb) |
+
+[Module overview](05_LLM_Tools/README.md) · [Browse all LLM materials](05_LLM_Tools/)
+
+</details>
+
+## Datasets
+
+| Dataset | Used for | Documentation and download |
 |---|---|---|
-| Foundations | How do a small tree and neural network predict the recorded class? | Reading spectra, forming features, training and testing |
-| Evaluation | Does a model that fits training samples well also work elsewhere? | Overfitting, validation and model choice |
-| Applications | Which measurements are unusual compared with Strawberry examples? | Outlier flags and laboratory follow-up |
+| Strawberry fruit purées | Spectral classification and outlier detection | [Background, preparation and licence](datasets/strawberry/README.md) · [CSV download (.gz)](datasets/strawberry/fruit_purees.csv.gz) |
+| DeepChem Tox21 | Assay prediction, molecular generation and descriptor outliers | [Background, preparation and provenance](datasets/tox21/README.md) · [CSV download (.gz)](datasets/tox21/tox21.csv.gz) |
 
-All three run independently and provide all code in cells of at most ten lines.
-Foundations has six written interpretation questions, Evaluation has seven,
-and Applications has five. Students run the code unchanged
-and write answers in text cells. Shared preparation is repeated so that no
-files or variables need to be transferred between notebooks.
+Each notebook can run on its own and loads its data automatically. Within
+each dataset series, the three notebooks reuse preparation and test records for teaching;
+this reuse is not new independent validation. Tox21 assay predictions do not
+establish overall toxicity or human safety. Dataset licences are documented
+separately from the [course repository licence](LICENSE).
 
-Evaluation takes 196 of the original 784 training samples for validation,
-leaving 588 for fitting. Applications returns to that original training group
-and uses its 280 samples with a Strawberry target as the detector's reference.
-The test group stays the same throughout; its reuse supports teaching rather
-than fresh independent validation. Applications reports review flags, which
-have a different meaning from the class predictions in the first two practicals.
+[All datasets and download guidance](datasets/README.md)
 
-### Foundations practical: strawberry authentication
+## Earlier materials
 
-- [Student Colab notebook](01_Foundations/notebooks/TD1_strawberry_student.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/01_Foundations/notebooks/TD1_strawberry_student.ipynb)
-- [Instructor version with discussion notes](01_Foundations/notebooks/TD1_strawberry_solution.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/01_Foundations/notebooks/TD1_strawberry_solution.ipynb)
+<details>
+<summary>Earlier practicals and slide versions</summary>
 
-The practical first shows the source table and two measured spectra, then
-visualises how the same spectra become eight fixed infrared window means.
-It introduces an 80/20 training/test split, a small decision tree and a neural
-network with one hidden layer of four neurons. Scaling for the network is
-learned from training samples only. Six written questions cover the inputs,
-the tree's rules, accuracy and the two models' mistakes. All code is supplied
-in cells of at most ten lines, with explanations above them. The notebook
-downloads a version-pinned data file automatically.
-See [data provenance and licence](datasets/strawberry/README.md).
+These earlier practicals contain coding exercises. The Strawberry
+and Tox21 notebooks linked under each day are the current practicals.
 
-The earlier wine-based `TD1_classical_ML_*` notebooks remain available as legacy
-material. The Foundations lecture notes and slides still refer to that earlier
-exercise; use the strawberry notebook's introduction for the current practical.
-
-### Evaluation practical: overfitting and model comparison
-
-- [Student Colab notebook](03_Evaluation/notebooks/TD2_strawberry_student.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/03_Evaluation/notebooks/TD2_strawberry_student.ipynb)
-- [Instructor version with discussion notes](03_Evaluation/notebooks/TD2_strawberry_solution.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/03_Evaluation/notebooks/TD2_strawberry_solution.ipynb)
-
-The practical starts with four short setup cells and a feature-table reminder,
-then moves to the training–validation–test split. It reuses the same cleaned
-strawberry data. Students compare a small tree, a deep tree and a random forest
-using eight window means, then add a small 1D CNN using the full 235-position
-spectra. Scaling for the CNN is learned from training spectra only. The table
-identifies each model's input, so students can distinguish a pipeline comparison
-from an architecture-only comparison. They choose using validation accuracy
-and inspect the selected model's test mistakes. A training/test line plot over
-tree depths follows the fixed choice as an overfitting illustration; choosing
-a depth from that curve would require a new independent final test.
-The code is supplied in short cells, with seven written questions and
-saved outputs. This introductory version does not include cross-validation,
-SVMs or statistical model comparisons.
-
-The Foundations training set is divided into training and validation subsets;
-the test partition has the same membership as in Foundations. Its reuse is
-explicitly a classroom comparison rather than new independent confirmation.
-The earlier `TD2_evaluation_*` notebooks remain available as legacy material.
-
-### Applications practical: outlier detection
-
-- [Student Colab notebook](04_Applications/notebooks/TD3_strawberry_student.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/04_Applications/notebooks/TD3_strawberry_student.ipynb)
-- [Instructor version with discussion notes](04_Applications/notebooks/TD3_strawberry_solution.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/04_Applications/notebooks/TD3_strawberry_solution.ipynb)
-
-The practical uses the same strawberry data and eight window means. Four
-setup cells recap the preparation from Foundations, then students choose
-the Strawberry reference group and begin outlier detection.
-One isolation forest learns from the 280 Strawberry training samples
-and flags unusual measurements among the same 197 test samples used earlier.
-All code is supplied in cells of at most ten lines. Five written questions focus
-on choosing a reference group, interpreting flags, inspecting an example and
-deciding what laboratory follow-up is needed. Both versions include saved outputs.
-
-A flag indicates a need for investigation; it does not establish adulteration.
-The fixed 5% training-reference flagging setting is explained as a teaching
-choice, rather than a measurement of adulteration prevalence. The earlier
-`TD3_applications_*` notebooks remain available as legacy material. The
-Applications lecture notes and slides cover broader examples; this strawberry
-notebook is the current practical.
-
-### Parallel Tox21 practicals: molecular descriptors and assay activity
-
-This series follows the same three-step progression with DeepChem's public
-Tox21 data. It uses eight readable molecular descriptors and one assay,
-SR-MMP. Every practical supplies all code in cells of at most ten lines.
-Foundations has nine interpretation questions, Evaluation has six, and
-Applications has five. The latter two start with four setup cells and a descriptor-table
-reminder, then move to their new material. Instructor copies
-include suggested answers and saved outputs. Students do not write or change code.
-
-| Practical | Student notebook | Instructor notebook |
+| Earlier practical | Student version | Answers |
 |---|---|---|
-| Foundations: classification and molecular generation | [Student](01_Foundations/notebooks/TD1_tox21_student.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/01_Foundations/notebooks/TD1_tox21_student.ipynb) | [Instructor](01_Foundations/notebooks/TD1_tox21_solution.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/01_Foundations/notebooks/TD1_tox21_solution.ipynb) |
-| Evaluation: overfitting and model comparison | [Student](03_Evaluation/notebooks/TD2_tox21_student.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/03_Evaluation/notebooks/TD2_tox21_student.ipynb) | [Instructor](03_Evaluation/notebooks/TD2_tox21_solution.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/03_Evaluation/notebooks/TD2_tox21_solution.ipynb) |
-| Applications: outlier detection | [Student](04_Applications/notebooks/TD3_tox21_student.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/04_Applications/notebooks/TD3_tox21_student.ipynb) | [Instructor](04_Applications/notebooks/TD3_tox21_solution.ipynb) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/04_Applications/notebooks/TD3_tox21_solution.ipynb) |
+| Classical ML: wine classification | [Notebook](01_Foundations/notebooks/TD1_classical_ML_student.ipynb) · [Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/01_Foundations/notebooks/TD1_classical_ML_student.ipynb) | [Notebook](01_Foundations/notebooks/TD1_classical_ML_solution.ipynb) · [Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/01_Foundations/notebooks/TD1_classical_ML_solution.ipynb) |
+| Model evaluation | [Notebook](03_Evaluation/notebooks/TD2_evaluation_student.ipynb) · [Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/03_Evaluation/notebooks/TD2_evaluation_student.ipynb) | [Notebook](03_Evaluation/notebooks/TD2_evaluation_solution.ipynb) · [Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/03_Evaluation/notebooks/TD2_evaluation_solution.ipynb) |
+| Applications | [Notebook](04_Applications/notebooks/TD3_applications_student.ipynb) · [Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/04_Applications/notebooks/TD3_applications_student.ipynb) | [Notebook](04_Applications/notebooks/TD3_applications_solution.ipynb) · [Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/04_Applications/notebooks/TD3_applications_solution.ipynb) |
 
-Foundations introduces the Tox21 experiments and explains the SR-MMP target
-before loading the data. It illustrates tree learning as a sorting route and
-shows how class-balancing importance differs from compound counts.
+- Earlier failure-mode supplement: [PowerPoint](03_Evaluation/slides/Part3_Failure_modes_additional.pptx) · [Teaching notes](03_Evaluation/slides/Part3_Failure_modes_additional.md)
+- Some overview slides and lecture notes still refer to these earlier practicals; use the current notebooks for the guided exercises.
 
-For molecular generation, students choose aspirin, paracetamol or ibuprofen
-from a dropdown, inspect the autoencoder's 512 learned values as a colour grid,
-and compare values before and after random changes. The notebook reconstructs
-the chosen starting structure and decodes twelve changed latent representations.
-Students inspect invalid outputs, repeated structures,
-fingerprint similarity and matches against the downloaded Tox21 file. The
-existing small tree predicts SR-MMP classes for the valid candidates using
-the same eight descriptors. These predictions have no new measured
-targets and do not establish overall toxicity or safety. The standard CPU
-runtime is sufficient; the model weights download automatically on first use.
-Student notebooks retain concise sources and interpretation limits; package
-versions, checksums and other provenance details are kept in instructor notes
-and the data documentation. Both practical series use target terminology in
-the prose, tables and code variables, and explain rounding with numerical examples.
 
-The notebooks calculate descriptors with a pinned RDKit release and read
-DeepChem's source CSV directly; installing the DeepChem Python package is not
-required. They exclude missing assay results and unreadable structures,
-retaining 5,804 records. Foundations and Applications share 4,643 training
-records and 1,161 test records; Evaluation sets aside 1,161 of those training
-records for validation. Test reuse is a classroom comparison, not fresh
-independent validation. Random splits do not separate chemical families.
+#### Earlier project materials
 
-The series explains why accuracy can hide missed Active results when Inactive
-results are more common. In Applications, an isolation forest learns descriptor
-patterns from both classes; its flags do not predict assay activity. Neither
-an assay prediction nor a flag certifies human safety. See the
-[data preparation, provenance and backup](datasets/tox21/README.md).
+These documents describe the earlier project-based assessment and are retained
+as references. Their project grading weights do not apply to the current
+assessment: quizzes count for 40% and the written exam for 60%.
 
-## Assessment
+- [Earlier project brief](assessment/project_brief.md)
+- [Earlier project marking rubric](assessment/rubric.md)
+- [Project dataset options](assessment/datasets_README.md)
+- [Student project notebook](assessment/project_template_student.ipynb) — [Open in Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/assessment/project_template_student.ipynb) · [Worked example with answers](assessment/project_solution.ipynb) ([Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/assessment/project_solution.ipynb))
+- [Earlier assessment overview](assessment/README.md)
 
-Continuous assessment is based on an assessed Colab notebook plus a short
-report; a terminal written exam covers the lecture material. See `assessment/`
-and the unit description (Fiche) for full modalites d'evaluation.
+</details>
