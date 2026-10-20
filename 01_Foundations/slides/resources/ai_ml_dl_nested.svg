@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 320" font-family="Calibri,Arial,sans-serif">
-  <ellipse cx="200" cy="160" rx="195" ry="150" fill="#D7ECEC"/>
-  <ellipse cx="178" cy="172" rx="150" ry="112" fill="#00A896" fill-opacity="0.45"/>
-  <ellipse cx="158" cy="184" rx="96" ry="70" fill="#028090"/>
-  <text x="200" y="35" text-anchor="middle" font-size="19" font-weight="bold" fill="#028090">Artificial intelligence</text>
-  <text x="178" y="92" text-anchor="middle" font-size="17" font-weight="bold" fill="#065A5A">Machine learning</text>
-  <text x="158" y="180" text-anchor="middle" font-size="17" font-weight="bold" fill="#FFFFFF">Deep</text>
-  <text x="158" y="202" text-anchor="middle" font-size="17" font-weight="bold" fill="#FFFFFF">learning</text>
-</svg>
