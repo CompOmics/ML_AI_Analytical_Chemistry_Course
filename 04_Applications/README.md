@@ -1,10 +1,10 @@
-# Part 4 - Applications in analytical chemistry (4 h CM + 1 h TD)
+# Part 4: Applications in analytical chemistry
 
-Contents:
-- `notes/` - lecture notes (Markdown).
-- `slides/` - deck (.pptx) and its Markdown equivalent (.md).
-- `slides/resources/` - rendered PDF and SVG figures.
-- `notebooks/` - TD notebook, student and solution versions.
+[Lecture notes](notes/Part4_Applications_notes.md) · [PowerPoint](slides/4_Applications_compomics.pptx)
+
+The presentation covers applications in proteomics, NMR, Raman spectroscopy
+and powder diffraction. Work through the Strawberry practical with the
+instructor, then complete the Tox21 practical independently.
 
 ## Current practical: strawberry outlier detection
 
@@ -36,10 +36,6 @@ isolated quickly, and why the forest combines route lengths over many trees.
 The exercise treats flags as prompts for follow-up. Neither a flag nor its
 absence certifies product purity. The reused classroom test set does not
 provide new independent validation. See the [data provenance and licence](../datasets/strawberry/README.md).
-
-The earlier `TD3_applications_student.ipynb` and
-`TD3_applications_solution.ipynb` remain as legacy material. The lecture notes
-and slides also cover broader application examples.
 
 ## Parallel practical: Tox21 descriptor outliers
 

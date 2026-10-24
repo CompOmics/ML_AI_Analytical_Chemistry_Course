@@ -59,7 +59,7 @@ sigmoid output (505 trainable parameters). It fits for 30 epochs with batch
 size 32, using training targets only.
 
 After reporting the fixed model's test result, a training/test line plot over
-depths 1–12 illustrates overfitting in trees trained on the same 588 samples.
+depths 1–30 illustrates overfitting in trees trained on the same 588 samples.
 It is not used to select a model. Selecting a depth from its test peak would
 require new independent test data for final confirmation.
 The code does not perform cross-validation or SVM scaling.

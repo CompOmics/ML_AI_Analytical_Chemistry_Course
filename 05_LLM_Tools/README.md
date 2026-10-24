@@ -1,5 +1,7 @@
 # Part 5: LLMs as research tools
 
+[Lecture notes](notes/Part5_LLM_notes.md)
+
 Use an LLM to help build a peptide retention-index predictor, while checking
 its code and explanations. This practical follows the Foundations, Evaluation
 and Applications notebooks and uses a new analytical-chemistry dataset.
@@ -37,9 +39,3 @@ quizzes, rather than this notebook, make up the 40% continuous-assessment mark.
 - [Recurrent neural networks and transformers](slides/5_1_recurrent-neural-networks-transformers.pptx)
 - [Foundation models](slides/5_2_foundation-models.pptx)
 - [LLMs as research tools](slides/Part5_LLM_slides.pptx)
-
-## Optional earlier exercise
-
-The synthetic peak-detection exercise remains available as a separate activity:
-[student notebook](notebooks/TD4_LLM_tools_student.ipynb) and
-[reference solution](notebooks/TD4_LLM_tools_solution.ipynb).

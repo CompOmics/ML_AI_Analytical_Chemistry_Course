@@ -1,441 +1,118 @@
-# Part 1: Foundations of Machine Learning and AI
-
-**Lecture notes (6 h CM + 1 h TD)**
-Machine Learning and AI for Analytical Chemistry, M2 Sciences analytiques
+# Foundations: from measurements to learned predictions
 
-These notes accompany the Part 1 slides and the TD1 notebook. Each key point
-carries a short worked example drawn from analytical chemistry. These examples
-are deliberately different from the wine dataset used in the TD1 notebook, so
-that the lecture and the practical reinforce each other rather than repeat.
-
----
-
-## 1. Concepts: machine learning and artificial intelligence (2 h)
-
-### 1.1 What we mean by the terms
-
-**Artificial intelligence (AI)** is the broad goal of getting computers to
-perform tasks that we would call intelligent if a person did them. It is an
-umbrella term and, on its own, says little about how a system works.
-
-**Machine learning (ML)** is the subset of AI that matters in practice today. A
-machine learning model is a function with adjustable parameters that are fitted
-to data, rather than programmed by hand. Instead of writing the rule "if the
-retention time is above X and the mass is below Y, then ...", we show the
-algorithm many labelled examples and let it find the rule that best reproduces
-them.
-
-**Deep learning** is the subset of machine learning that uses neural networks
-with many layers. It powers image recognition, speech, and large language
-models. We treat it in Section 3.
-
-The relationship is one of nested sets: deep learning is inside machine
-learning, which is inside artificial intelligence.
-
-> **Example.** Determining the concentration of an analyte from a UV-Vis
-> absorbance using the Beer-Lambert law is not machine learning: the rule is a
-> known physical equation. Predicting the liquid-chromatography retention time
-> of a molecule from its structure is machine learning: there is no simple
-> equation, so we fit a model to thousands of measured retention times. A modern
-> retention-time predictor built on a deep neural network (for instance DeepLC)
-> is the deep-learning version of the same task.
-
-### 1.2 Why this is relevant to analytical chemistry
-
-Analytical chemistry produces large, structured, high-dimensional measurements:
-chromatograms, mass spectra, NMR spectra, ion mobility data. Many tasks once
-solved with physical models or expert heuristics can now be addressed by
-learning patterns directly from data: predicting retention times, predicting
-fragmentation, recognising signals, and flagging anomalies. The appeal is that a
-model can capture relationships too complex to write down explicitly. The risk,
-developed in Part 3, is that a model can appear to work while having learned the
-wrong thing.
-
-### 1.3 The three main learning settings
-
-**Supervised learning.** Each training example has an input (features) and a
-known answer (label or target). The model learns to map inputs to answers. Two
-sub-cases:
-
-- *Regression*: the target is a continuous number.
-- *Classification*: the target is a category.
-
-> **Example (regression).** Predict the gas-chromatography retention index of a
-> volatile compound from molecular descriptors, with the measured retention
-> index as the target.
-> **Example (classification).** Decide whether a pharmaceutical tablet is
-> polymorph form A or form B from its Raman spectrum, with the known form as the
-> label.
-
-**Unsupervised learning.** The data have no labels. The model looks for
-structure on its own, for example grouping similar samples (clustering) or
-compressing the data into fewer dimensions. Useful for exploration and quality
-control when you do not yet know what you are looking for.
-
-> **Example.** Cluster the GC-MS profiles of olive-oil samples to see whether
-> they separate by geographic origin, without telling the algorithm any origin
-> labels. This is a common authenticity-screening question.
-
-**Reinforcement learning.** An agent learns by trial and error against a reward
-signal. It is central to robotics and game playing and to some experiment-design
-problems, but it is not a focus of this course.
-
-> **Example.** Automatically tune the collision energy and isolation window of a
-> mass spectrometer to maximise the number of confident identifications, where
-> the reward is the identification count.
-
-### 1.4 Features, the central idea
-
-A **feature** is a measurable property of a sample, expressed as a number. The
-collection of features for one sample is a **feature vector**. A dataset is then
-a table: rows are samples, columns are features, plus one column for the target
-in supervised learning.
-
-The quality of the features usually matters more than the choice of algorithm.
-
-> **Example.** An infrared spectrum sampled every 2 cm-1 from 400 to 4000 cm-1
-> is a feature vector of about 1800 numbers, one absorbance per wavenumber. A
-> molecule can instead be described by computed molecular descriptors (molecular
-> weight, number of hydrogen-bond donors, topological polar surface area, and so
-> on). The same compound can therefore be represented by very different feature
-> sets, and that choice constrains what any model can learn (Part 2).
-
-### 1.5 The machine learning workflow
-
-Every project, regardless of method, follows the same loop. Learn this loop; the
-algorithms are interchangeable parts inside it.
-
-1. **Define the task.** What is predicted, from what, and why. Choose regression
-   or classification.
-2. **Collect and understand the data.** Inspect distributions, missing values,
-   and obvious errors before modelling.
-3. **Build features.** Clean, transform, and where needed scale the inputs.
-4. **Split the data.** Separate training data from data held back for honest
-   evaluation. Doing this correctly is the subject of Part 3; doing it wrong is
-   the most common cause of misleading results.
-5. **Train a model.** Fit the parameters on the training set.
-6. **Evaluate.** Measure performance on held-back data with an appropriate
-   metric.
-7. **Interpret and iterate.** Understand what the model uses, diagnose errors,
-   and improve.
-8. **Deploy and monitor.** Put the model to use, and watch for the data drifting
-   away from what the model was trained on.
-
-> **Example (the loop, end to end).** Goal: flag out-of-specification batches of
-> a drug substance from their near-infrared (NIR) spectra. Understand the data:
-> check for saturated spectra and baseline drift. Features: the preprocessed NIR
-> spectrum. Split: keep whole production campaigns apart so the test set is
-> genuinely unseen. Train: a classifier on passing and failing batches.
-> Evaluate: measure detection on held-back campaigns. Interpret: confirm the
-> model reacts to a real absorption band and not to an instrument artefact.
-> Deploy: screen new batches, and watch for drift as raw-material lots change.
-
-### 1.6 When not to use machine learning
-
-Machine learning is not always the right tool. Prefer a simpler approach when a
-validated physical or analytical model already exists, when you have very few
-samples, when full transparency is legally required, or when a single rule
-solves the problem. A good baseline (a linear fit, or even a constant
-prediction) is always worth computing first: if a complex model cannot beat it,
-the complexity is not justified.
-
-> **Example.** To quantify a single analyte from its absorbance, a linear
-> Beer-Lambert calibration is accurate, transparent, and validated. Replacing it
-> with a neural network would add opacity and overfitting risk for no benefit.
-> Machine learning earns its place only when the relationship is genuinely too
-> complex for such a model.
-
-### 1.7 Overfitting in one paragraph (preview of Part 3)
-
-A model that is too flexible can memorise the training data, including its
-noise, and then fail on new data. This is **overfitting**. The opposite,
-**underfitting**, is a model too simple to capture the real pattern. The whole
-discipline of evaluation (Part 3) exists to detect and control this.
-
-> **Example.** A classifier that "predicts" sample origin with suspiciously high
-> accuracy may in fact be reading the instrument or batch on which each class
-> was measured, because all samples of one class happened to be run on the same
-> day. It has memorised an artefact, not learned chemistry, and it will collapse
-> on samples measured elsewhere. Good performance on data the model has already
-> seen proves almost nothing.
-
----
-
-## 2. Classical machine learning models (2 h)
-
-These methods are not obsolete. For tabular analytical data with tens to a few
-thousand samples, they are often more accurate, faster, and easier to interpret
-than deep learning. They should be your default starting point.
-
-### 2.1 Decision trees
-
-A **decision tree** splits the data with a sequence of yes/no questions on the
-features. Each internal node asks a question, each branch is an answer, and each
-leaf gives a prediction.
-
-> **Example.** Identifying the functional group of an unknown from its infrared
-> spectrum. The first split asks "is there a strong band near 1715 cm-1 (C=O
-> stretch)?" If yes, a second split on a broad 2500-3300 cm-1 band separates
-> carboxylic acids from ketones. If no, a split on a 3200-3550 cm-1 band tests
-> for an O-H or N-H group. Each split is a chemically interpretable rule, which
-> is the appeal of a single tree.
-
-Strengths: easy to read and explain, needs no feature scaling, handles
-non-linear relationships and feature interactions naturally. Weakness: a single
-tree grown deep enough will overfit badly, because it can keep splitting until
-every training point sits in its own leaf. The next two subsections explain how
-a tree is actually built, and how the overfitting is controlled.
-
-### 2.2 How a decision tree is induced
-
-"Induction" is the process of learning the tree from data. Decision trees are
-grown by a **greedy, top-down, recursive partitioning** algorithm (the classic
-variants are ID3, C4.5, and CART). The recipe is:
-
-1. Start with all training samples at the root.
-2. For every feature, and for every candidate split point of that feature,
-   measure how much the split would reduce impurity.
-3. Choose the single best split (the one with the largest impurity reduction).
-4. Partition the samples down the two branches.
-5. Repeat steps 2 to 4 on each child node, recursively.
-6. Stop when a node is pure, or a stopping rule is met (see below).
-
-It is called *greedy* because it takes the locally best split at each step
-without looking ahead; it does not search for a globally optimal tree, which
-would be computationally infeasible.
-
-**Measuring impurity.** A node is "pure" if all its samples share one class. The
-common impurity measures for classification are:
-
-- **Entropy:** H = - sum over classes of p log2(p), where p is the fraction of
-  the node belonging to each class. H is 0 for a pure node and 1 bit for a
-  50/50 two-class node.
-- **Gini index:** G = 1 - sum of p squared. Similar behaviour, slightly cheaper
-  to compute; it is the default in scikit-learn's CART.
-
-**Information gain** is the reduction in entropy achieved by a split:
-IG = H(parent) - sum over children of (n_child / n_parent) * H(child).
-The algorithm picks the split with the highest information gain.
-
-> **Worked example.** Eight honey samples, four pure (P) and four adulterated
-> (A). The parent node is a 4/4 mix, so H(parent) = 1.00 bit.
->
-> Candidate split 1, a stable-isotope test "is delta-13C above the threshold?":
->
-> | branch | samples | A | P |
-> |--------|---------|---|---|
-> | yes | 4 | 3 | 1 |
-> | no | 4 | 1 | 3 |
->
-> Each child has H = -(0.75 log2 0.75 + 0.25 log2 0.25) = 0.81 bit. The weighted
-> child entropy is (4/8)(0.81) + (4/8)(0.81) = 0.81, so IG = 1.00 - 0.81 = 0.19.
->
-> Candidate split 2, "is the colour dark?", happens to give two children that
-> are each still 2/2, so H = 1.00 in both and IG = 0.00. The algorithm therefore
-> chooses the isotope test, because it carries more information about
-> adulteration. It would then recurse on each branch, looking for the next best
-> split.
-
-**Continuous features.** A feature such as retention time has no natural yes/no
-form. The algorithm sorts the unique values, considers the midpoints between
-consecutive values as candidate thresholds, evaluates the information gain of
-each, and keeps the best "feature <= threshold" test. This is why trees handle
-numeric analytical measurements directly, without scaling.
-
-**Stopping criteria.** Growth stops when a node is pure, when no split improves
-impurity, or when a user limit is reached: a maximum depth, a minimum number of
-samples per leaf, or a minimum impurity decrease. These limits are the simplest
-defence against overfitting (called pre-pruning).
-
-**Pruning.** An alternative is to grow the tree fully and then cut back the
-branches that do not improve performance on held-back data (post-pruning). CART
-uses **cost-complexity pruning**, governed by a parameter (ccp_alpha in
-scikit-learn) that trades tree size against accuracy. Pruning is how a single
-tree is kept from memorising noise; the random forest in the next subsection
-takes a different route to the same goal.
-
-### 2.3 Random forests
-
-A **random forest** is an ensemble of many decision trees whose predictions are
-averaged (for regression) or voted (for classification). Two sources of
-randomness make the trees differ from one another:
-
-- each tree is trained on a random bootstrap sample of the data (sampling with
-  replacement), and
-- at each split only a random subset of the features is considered.
-
-Averaging many diverse, individually noisy trees cancels much of their error.
-This is why random forests are accurate, robust, and require little tuning. They
-also provide a built-in **feature importance** estimate, which is valuable for
-interpretation. The cost is that the ensemble is no longer as directly readable
-as a single tree.
-
-> **Example.** Predict whether a compound is likely to be genotoxic from a few
-> hundred molecular descriptors. A random forest handles the many correlated
-> descriptors gracefully, and its feature-importance ranking might highlight the
-> presence of an aromatic nitro group, which is chemically plausible and gives
-> the chemist a sanity check on the model.
-
-### 2.4 Support vector machines and support vector regression
-
-A **support vector machine (SVM)** for classification looks for the boundary
-that separates two classes with the widest possible **margin**, the gap between
-the boundary and the nearest samples. Those nearest samples are the "support
-vectors"; they alone determine the boundary. When classes are not linearly
-separable, the SVM uses the **kernel trick**: a kernel function implicitly maps
-the data into a higher-dimensional space where a linear boundary becomes
-possible. The common radial basis function (RBF) kernel allows curved
-boundaries. **Support vector regression (SVR)** applies the same machinery to
-continuous targets.
-
-Strengths: effective in high-dimensional spaces and with limited samples, which
-suits some spectral problems. Weaknesses: sensitive to feature scaling (always
-scale first), sensitive to its tuning parameters, and slower on large datasets.
-
-> **Example.** Decide whether a drinking-water sample exceeds a contaminant
-> threshold from features such as conductivity (hundreds of microsiemens per
-> centimetre) and a trace-metal concentration (a few micrograms per litre).
-> Without scaling, conductivity dominates the distance calculation purely
-> because its numbers are larger; standardising the features puts both on an
-> equal footing so the SVM can use them fairly.
-
-### 2.5 k-means clustering
-
-**k-means** is the standard unsupervised method for grouping samples. You choose
-the number of clusters, k. The algorithm then alternates two steps until stable:
-assign each sample to its nearest cluster centre, then move each centre to the
-mean of the samples assigned to it. Limitations: you must choose k in advance,
-the result depends on the random starting positions, it assumes roughly round
-clusters of similar size, and it requires the features to be scaled.
-
-> **Example.** Group the trace-element fingerprints of honey samples (measured by
-> ICP-MS) into clusters and check whether the clusters correspond to floral or
-> regional origin. Because element concentrations span several orders of
-> magnitude, the data must be scaled first, or a single high-concentration
-> element would control every distance.
-
-### 2.6 Choosing among them
-
-A rough guide for tabular data: start with a random forest as a strong, low-
-effort baseline. Use a single decision tree when interpretability is the
-priority. Use SVM/SVR when you have many features and few samples and have scaled
-the data. Use k-means (or other clustering) when you have no labels and want to
-explore structure. In all cases, compare against a trivial baseline.
-
----
-
-## 3. Deep learning, by intuition (2 h)
-
-The goal here is understanding, not implementation. You should leave able to read
-an applications paper and know roughly what each architecture does and when it is
-appropriate. We keep the mathematics light.
-
-### 3.1 Neural networks: the common foundation
-
-A **neural network** is built from simple units ("neurons"). Each unit forms a
-weighted sum of its inputs, adds an offset, and passes the result through a
-non-linear **activation function**. Units are arranged in **layers**; the output
-of one layer feeds the next. "Deep" means many layers. The non-linearity is
-essential: stacking linear operations alone would collapse to a single linear
-function. Training works by **gradient descent with backpropagation**: a **loss
-function** measures the error, and the error is propagated backwards to adjust
-each weight, repeated over many passes ("epochs"). Deep networks are data-hungry
-and often underperform classical methods on small tabular data.
-
-> **Example.** A fluorescence sensor whose response saturates at high analyte
-> concentration is not linear, so a Beer-Lambert fit fails at the top of the
-> range. A small neural network can learn the full non-linear calibration curve
-> from many standard measurements, extending quantitation into the saturating
-> region.
-
-### 3.2 Convolutional neural networks (CNNs)
-
-A **convolutional neural network** is designed for data with grid or sequence
-structure where local patterns matter and can appear at different positions:
-images (2D) and spectra (1D). The key idea is the **convolutional filter**, a
-small set of weights slid across the input to detect a local motif (an edge in
-an image, a peak shape in a spectrum) wherever it occurs. Early layers detect
-simple motifs; later layers combine them. Reusing the same filter across all
-positions means far fewer parameters and tolerance to shifts.
-
-> **Example.** A 1D CNN reads a Raman spectrum and classifies a plastic fragment
-> as polyethylene, polypropylene, or polystyrene, recognising the characteristic
-> band pattern even if it is slightly shifted by instrument calibration. The same
-> idea underlies peak detection in LC-MS, where a CNN learns the shape of a true
-> chromatographic peak against noise.
-
-### 3.3 Transformers and the attention mechanism
-
-The **transformer** is the architecture behind modern large language models, and
-increasingly behind models for molecules and spectra. Its central idea is
-**attention**: when processing one element of a sequence, the model learns how
-much to attend to every other element, capturing long-range relationships. It
-processes all positions in parallel and scales well to large datasets, which is
-why it has become dominant. Transformers are also the foundation of the **large
-language models** (LLMs) that Part 5 treats as practical tools.
-
-> **Example.** Predicting the fragmentation spectrum of a peptide from its amino-
-> acid sequence (as Prosit does) needs the model to relate residues that are far
-> apart in the sequence but close in the folded ion. Attention captures exactly
-> these long-range dependencies, which is why transformer-style models predict
-> peptide spectra and retention times well.
-
-### 3.4 Graph neural networks and autoencoders (brief)
-
-**Graph neural networks (GNNs)** operate on data shaped as graphs: nodes
-connected by edges. A molecule is naturally a graph, with atoms as nodes and
-bonds as edges, so GNNs predict molecular properties directly from structure.
-Each node repeatedly updates its representation by exchanging information with
-its neighbours.
-
-> **Example.** Predict the collisional cross section (CCS) of a small molecule in
-> ion mobility directly from its molecular graph, without first computing
-> hand-crafted descriptors.
-
-**Autoencoders** are networks trained to reconstruct their own input after
-compressing it through a narrow "bottleneck", which forces a compact
-representation. They are used for dimensionality reduction, denoising, and
-anomaly detection. A **variational autoencoder (VAE)** is a probabilistic version
-whose smooth internal space can also be sampled to generate new examples.
-
-> **Example.** Train an autoencoder on normal process-NMR spectra; a spectrum
-> that reconstructs poorly is flagged as an anomaly, signalling an unexpected
-> impurity or a process fault.
-
-### 3.5 Classical versus deep, a practical summary
-
-Reach for deep learning when the data are large, high-dimensional, and have
-spatial or sequential structure (images, spectra, long sequences), and when you
-have the labelled volume and compute to support it. Reach for classical methods
-when the data are tabular and modest in size, when interpretability matters, or
-when you need a strong result quickly. In this course you build classical models
-hands-on (TD1) and meet deep models mainly through their applications (Part 4).
-
----
-
-## Key terms
-
-- **Feature / feature vector**: numeric description of a sample.
-- **Label / target**: the answer to be predicted.
-- **Supervised / unsupervised learning**: with / without labels.
-- **Regression / classification**: continuous / categorical target.
-- **Overfitting / underfitting**: too flexible / too simple a model.
-- **Induction**: learning a model (here, a tree) from data.
-- **Greedy recursive partitioning**: the top-down tree-growing algorithm.
-- **Entropy, Gini index, information gain**: impurity measures and the reduction
-  used to choose splits.
-- **Pruning**: cutting back a grown tree to fight overfitting.
-- **Ensemble**: many models combined (e.g. a random forest of trees).
-- **Margin, kernel, support vectors**: the ingredients of an SVM.
-- **Activation, loss, gradient descent, backpropagation**: how a neural network
-  learns.
-- **Convolutional filter**: a reusable local-pattern detector in a CNN.
-- **Attention**: the mechanism letting a transformer weigh all positions.
-
-## Further reading
-
-- Hastie, Tibshirani, Friedman, *The Elements of Statistical Learning* (free
-  PDF) for the classical methods and a fuller treatment of tree induction.
-- The scikit-learn user guide for practical, example-driven explanations.
-- A review of machine learning in analytical chemistry / mass spectrometry, to
-  be assigned, for domain context (see Part 4).
+These notes follow the Foundations lectures across days 1 and 2. They introduce the ideas needed to interpret the Strawberry and Tox21 practicals without having to write a program. Evaluation develops model comparison in more detail; sequence models and foundation models are covered in the LLM Tools notes.
+
+## Presentations and practicals
+
+| Material | Main ideas |
+|---|---|
+| [Introduction](../slides/1_1_introduction.pptx) | Experience, task, performance and generalisation; different data and prediction tasks |
+| [Regression](../slides/1_2_regression.pptx) | Linear models, parameters, loss, gradient descent and polynomial features |
+| [Logistic regression](../slides/1_3_logistic_regression.pptx) | Binary classification, sigmoid output and classification loss |
+| [Neural networks](../slides/1_4_Neural%20networks.pptx) | Layers, activations, backpropagation, batches and epochs |
+| [Convolutional neural networks](../slides/1_5_convolutional-neural-networks-new.pptx) | Local patterns, shared filters and pooling |
+| Strawberry practical: [student](../notebooks/TD1_strawberry_student.ipynb), [answers](../notebooks/TD1_strawberry_solution.ipynb) | Predict the recorded purée class from infrared measurements |
+| Tox21 practical: [student](../notebooks/TD1_tox21_student.ipynb), [answers](../notebooks/TD1_tox21_solution.ipynb) | Predict an assay outcome, then reconstruct and propose molecular structures |
+
+The Strawberry practical is worked through with the instructor. The corresponding Tox21 practical applies the ideas independently. Both supply their code; the exercises ask for explanations of the inputs, calculations, predictions and limitations.
+
+## 1. What does learning mean?
+
+Machine learning uses examples to adjust a model's behaviour for a specified task. The introductory presentation separates experience, task and performance: which data the model sees, what it should predict, and how success is measured. A useful model must also generalise, meaning that it applies what it learned to examples excluded from training. Reproducing the training answers is insufficient evidence of this ability.
+
+Artificial intelligence is a broad field, machine learning is one approach within it, and deep learning uses neural networks with multiple processing layers. Neural networks have a historical connection to ideas about biological neurons, including the perceptron discussed in the introduction. Their units combine inputs and produce outputs, but modern networks are mathematical models rather than detailed simulations of a brain.
+
+The task determines the target and the appropriate output. Classification predicts a category, such as Strawberry or NON-Strawberry. Regression predicts a number, such as a retention index. Unsupervised methods examine structure without using known targets to teach the prediction; the outlier detector in Applications is an example. Generating a candidate molecular structure is another task again: it should not be confused with measuring that molecule's properties.
+
+## 2. Samples, features, targets and predictions
+
+A sample is one example in the dataset. Features are the numerical inputs describing that example. A target is its recorded outcome, and a prediction is the model's proposed outcome. The target is available when training or checking a supervised model, but a new prediction must be made from inputs available before that target is known.
+
+| Practical | One sample | Features used by the classifier | Target |
+|---|---|---|---|
+| Strawberry | One recorded fruit-purée spectrum | Eight averages of infrared signal windows | Strawberry or NON-Strawberry |
+| Tox21 | One retained compound record | Eight calculated molecular descriptors | Active or Inactive in SR-MMP |
+
+These distinctions prevent several common mistakes. A molecular descriptor is not an assay measurement, and a predicted class is not a newly observed experimental result. A source-record identifier helps trace an example but is not automatically a useful chemical feature. A large input value does not by itself imply high toxicity or a high analyte concentration.
+
+A feature representation retains some information and discards other information. Averaging an infrared window keeps its broad signal level but can lose a narrow peak. Molecular weight and ring counts summarise aspects of a structure but do not describe every bond arrangement. A model cannot recover distinctions that its inputs have removed simply by becoming more complicated.
+
+## 3. Linear regression: learning contributions from inputs
+
+A simple linear model predicts a numerical target with a straight line:
+
+`predicted target = intercept + slope × feature`
+
+The slope and intercept are parameters: numbers learned during fitting. With several features, the prediction adds one weighted contribution per feature. For example, a retention-index model can assign different contributions to sequence length and amino-acid counts. The learned coefficients describe the fitted relationship for the chosen inputs; they do not automatically establish a chemical mechanism.
+
+A loss function measures disagreement between predictions and recorded targets. Mean squared error averages squared prediction errors, so large errors contribute disproportionately. An illustrative prediction of 12 for a target of 10 contributes a squared error of 4. Fitting seeks parameters that reduce the chosen training loss, rather than parameters that merely produce a visually attractive line.
+
+Gradient descent repeatedly adjusts parameters in a direction that reduces the loss locally. The learning rate controls the size of each adjustment. Very large steps can make training unstable; very small steps can make progress slow. The fitted parameters and the learning rate have different roles: parameters are learned values, whereas the learning rate is a training setting.
+
+A straight-line model can miss a curved relationship. The regression presentation introduces polynomial transformations, such as adding a squared feature. The model can then describe curvature even though it remains linear in its coefficients. Greater flexibility can improve training fit while also making the model more sensitive to accidental details, which motivates Evaluation.
+
+## 4. Logistic regression: from a score to a class
+
+A binary classifier needs a way to distinguish two outcomes. Logistic regression first calculates a weighted score and then maps it through a sigmoid function to an output between zero and one. A decision threshold turns that output into a class. The threshold and the output score should be distinguished from accuracy, which summarises correctness across many examples with known targets.
+
+Binary cross-entropy is a loss suited to this task. It penalises a confident wrong prediction especially strongly. Confidence alone is not penalised: a high score for the correct class has a small loss, while a high score for the wrong class has a large loss. This explains the classification-loss curves in the presentation more precisely than saying that the model should avoid certainty in all circumstances.
+
+An output of 0.9 is a model estimate for one example, not a guarantee that this example is correct. Whether such scores correspond to observed frequencies is a separate calibration question. In the practicals, the main checks are accuracy and the different kinds of mistakes, rather than probability calibration.
+
+## 5. A small tree as a readable first model
+
+A decision tree sorts training examples into smaller groups by asking questions about features. At a node, it might ask whether B6 is at or below a learned cut-off. A new sample follows the same sequence of questions until it reaches a final group, called a leaf. That leaf supplies the predicted class using the training examples that reached it.
+
+The Foundations trees have `max_depth=2`, allowing at most two decisions along a route. The fitting procedure learns the feature choices and cut-offs; the user supplies the depth limit. The plotted tree makes this distinction visible. Following one route explains the model's decision, although a learned cut-off does not by itself establish a chemical cause. Evaluation explains how splits are selected and what happens when depth restrictions are removed.
+
+## 6. Neural networks: combining learned transformations
+
+A neural-network unit forms a weighted sum of inputs, adds an offset, and applies an activation function. A layer contains several units, and the next layer uses their outputs as its inputs. Hidden layers therefore construct internal numerical representations rather than requiring every useful combination of features to be specified in advance.
+
+Nonlinear activations are essential to this flexibility. Stacking linear transformations alone still produces a linear transformation. With nonlinear activations, a network can represent more complex boundaries and curved relationships. A deeper network can express more complicated patterns, but additional layers do not guarantee better predictions on new samples.
+
+Training has a forward calculation and a backward calculation. The forward pass produces predictions and a loss. Backpropagation calculates how the loss depends on the parameters, and an optimiser uses these gradients to update the weights and offsets. An epoch is one pass through the training data; a mini-batch is a smaller group used for one update. Early stopping uses validation performance to decide when to stop, rather than repeatedly checking test performance.
+
+The Strawberry practical uses eight inputs and one hidden layer with four neurons. Its scaler learns feature means and spreads from training samples only, then applies the same transformation to test samples. This keeps numerical scales comparable without allowing the test group to set the transformation. The tree uses the unscaled window means, so the two models' preparation differs even though their sample groups match.
+
+## 7. Convolution: learning local patterns
+
+A convolutional neural network (CNN) applies a small filter at many positions in an ordered input. The same learned weights examine neighbouring pixels in an image or neighbouring signals in a spectrum. The resulting feature map records where a local pattern produces a strong response. Further layers can combine these responses into more complex patterns.
+
+Weight sharing lets one filter recognise a pattern in different positions without learning a separate detector everywhere. Convolution preserves the way a pattern's response moves when the input shifts; pooling can reduce sensitivity to small changes in position. Neither operation guarantees complete invariance to every translation, rotation or change in measurement conditions.
+
+The presentation distinguishes image classification, object detection, segmentation and tracking. These tasks produce different outputs: an image class, a location, pixel-level regions, or identities followed across frames. The Strawberry CNN appears in Evaluation, where it receives the full ordered spectrum rather than the eight fixed window means. Its learned filters and those eight windows are different representations.
+
+## 8. Reading the Strawberry practical
+
+The original table contains 983 spectra, each with 235 measured wavenumbers. Its layout differs from the model table: targets occupy the first row and samples occupy columns. The notebook separates the targets, converts the numerical part once, and transposes the spectra so each sample occupies one row. A preview and two plotted spectra connect the table to the underlying measurement.
+
+Two records have identical numerical spectra but opposite targets. Both are excluded because the file cannot establish which target is correct, leaving 981 observations. The notebook then calculates eight fixed window means and keeps 784 observations for training and 197 for testing. The model predicts the recorded class; NON-Strawberry includes both other fruit purées and adulterated mixtures without identifying each adulterant or its concentration.
+
+Accuracy is the fraction of predictions matching the recorded targets. An accuracy of 0.90 means 90% correct classifications in the evaluated group. The constant NON-Strawberry rule provides a comparison because this is the larger class. In the confusion matrix, rows are recorded targets and columns are predictions. A NON-Strawberry sample predicted Strawberry is a false acceptance; the reverse is a false rejection. Their practical consequences differ even if they contribute equally to ordinary accuracy.
+
+## 9. Reading the Tox21 practical
+
+Tox21 is a programme studying chemical responses in laboratory assays. The practical selects SR-MMP, a stress-response assay concerning mitochondrial membrane potential. The target describes whether an active response was recorded in that assay under its experimental conditions. Active and Inactive are not judgements of overall human toxicity or safety.
+
+Of 7,831 source records, 5,810 have an SR-MMP result and a structure string. Six structures cannot be read with the supplied tools, leaving 5,804 records. Missing outcomes remain unknown rather than becoming Inactive. The features summarise molecular weight, predicted LogP, hydrogen-bond donors and acceptors, polar surface area, rotatable bonds, aromatic rings and heavy atoms. They are calculated from structure rather than measured in the assay.
+
+Inactive compounds are more common than Active compounds. Class balancing gives each rarer Active example greater importance during learning so both classes have equal total training weight. It does not create extra compounds or change ordinary accuracy into balanced accuracy. An always-Inactive rule can have high accuracy while finding no Active compounds, so the confusion matrix remains necessary.
+
+### Reconstruction and molecular proposals
+
+The second part uses pretrained CDDD to encode a molecular structure into 512 latent values and decode it back into a structure description. The encoder weights were learned during pretraining; the 512 values are outputs calculated for the selected molecule, rather than 512 stored model weights. Individual latent values do not have named units such as molecular weight. The colour grid displays their pattern; neighbouring squares do not represent neighbouring atoms, and its colours do not indicate toxicity.
+
+The notebook reconstructs a chosen starting molecule, perturbs its latent representation and decodes proposed structures. Invalid strings, repeated reconstructions and distinct changed candidates are counted separately. A readable structure is not proof of stability, synthetic feasibility or scientific novelty. Absence from the downloaded Tox21 file only establishes absence from that particular reference comparison.
+
+The candidate structures are then passed to the existing classifier after recalculating the same eight descriptors. The classifier does not receive the 512 latent values and is not retrained on the proposals. Because the candidates have no measured assay targets here, their predictions cannot produce a new accuracy estimate. Structural similarity also does not establish equal activity.
+
+The slides introduce variational autoencoders through [Gómez-Bombarelli et al. (2018)](https://doi.org/10.1021/acscentsci.7b00572). The practical instead uses the translation-based molecular representation described by [Winter et al. (2019)](https://doi.org/10.1039/C8SC04175J). The two share an encoding-and-decoding idea but are not the same model or training objective.
+
+## 10. Connecting to the following topics
+
+[Data](../../02_Data/notes/Part2_Data_notes.md) examines what the representations retain and how preparation affects interpretation. [Evaluation](../../03_Evaluation/notes/Part3_Evaluation_notes.md) introduces a validation group, stronger overfitting demonstrations and comparison with a CNN. [Applications](../../04_Applications/notes/Part4_Applications_notes.md) reuses the features but changes the question from predicting targets to identifying unusual patterns.
+
+Useful revision questions are whether a quantity is an input, target, learned parameter or chosen setting; which records taught the model; and what evidence would support its use on a new sample. Being able to answer these questions matters more than memorising Python syntax.
+
+Dataset background: [Strawberry](../../datasets/strawberry/README.md) and [Tox21](../../datasets/tox21/README.md).

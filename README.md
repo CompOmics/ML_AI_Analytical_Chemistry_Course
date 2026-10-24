@@ -10,7 +10,7 @@ Coordinator: Lennart Martens. Instructors: Lennart Martens, Robbin Bouwmeester a
 - Open the materials for your day below. The course runs over five days, with Foundations spread across the first two.
 - Complete both the Strawberry and Tox21 practical series, in the order Foundations → Evaluation → Applications.
 - Work through each Strawberry practical together with the instructor, then complete the corresponding Tox21 practical independently to apply what you have learned.
-- Click an Open in Colab button to run a practical without installing anything locally. The six current practicals provide all code; run the cells and answer the interpretation questions in words.
+- Click an Open in Colab button to run a practical without installing anything locally. The six Strawberry and Tox21 practicals provide all code; run the cells and answer the interpretation questions in words. On day 5, use an LLM to help build your own peptide prediction model.
 - Save your own notebook copy to keep your answers. You can also fork this repository if you want an editable copy of all course materials.
 - Complete the Foundations quiz after day 2, the Evaluation quiz after day 3 and the Applications quiz after day 4. Each quiz follows the lecture and both corresponding practicals.
 
@@ -20,6 +20,19 @@ The three quizzes together count for 40% of the final mark. The written exam
 counts for the remaining 60%. The LLM-assisted project is part of the day 5
 practical.
 
+## Lecture notes
+
+These notes follow the current presentations and practicals, with consistent
+terminology and explanations for students who do not program. The Data notes
+bring together the preparation and representation choices used in the practicals.
+
+| Topic | Notes |
+|---|---|
+| Foundations (days 1 and 2) | [Foundations notes](01_Foundations/notes/Part1_Foundations_notes.md) |
+| Data | [Data notes](02_Data/notes/Part2_Data_notes.md) |
+| Evaluation | [Evaluation notes](03_Evaluation/notes/Part3_Evaluation_notes.md) |
+| Applications | [Applications notes](04_Applications/notes/Part4_Applications_notes.md) |
+| LLM tools and the peptide project | [LLM Tools notes](05_LLM_Tools/notes/Part5_LLM_notes.md) |
 
 ## Course overview
 
@@ -31,7 +44,7 @@ practical.
 | 4. Applications | Which measurements or compounds need a closer look? | [Lectures and practicals](#day-4-applications) | [Applications quiz](https://forms.gle/nnajgJVD9WouWYkM7) |
 | 5. LLM tools | How can LLMs support research while we check their outputs? | [Lectures and practical](#day-5-llm-tools) | — |
 
-[Grading](#grading) · [Datasets](#datasets) · [Earlier materials](#earlier-materials)
+[Grading](#grading) · [Lecture notes](#lecture-notes) · [Datasets](#datasets)
 
 ### Day 1: Foundations
 
@@ -45,9 +58,8 @@ practical.
 | Introduction to machine learning | [PowerPoint](01_Foundations/slides/1_1_introduction.pptx) |
 | Regression | [PowerPoint](01_Foundations/slides/1_2_regression.pptx) |
 | Logistic regression | [PowerPoint](01_Foundations/slides/1_3_logistic_regression.pptx) |
-| Foundations overview deck, covering days 1–2 | [PowerPoint](01_Foundations/slides/Part1_Foundations_slides.pptx) · [PDF](01_Foundations/slides/resources/Part1_Foundations_slides.pdf) |
 
-[Lecture notes](01_Foundations/notes/Part1_Foundations_notes.md) · [Overview slide outline](01_Foundations/slides/Part1_Foundations_slides.md) · [Figures](01_Foundations/slides/resources/)
+[Lecture notes](01_Foundations/notes/Part1_Foundations_notes.md)
 
 #### Practicals
 
@@ -77,16 +89,16 @@ quiz follows the second day.
 
 #### Lectures
 
-| Topic | Slides |
+| Topic | Materials |
 |---|---|
-| Neural networks | [PDF](01_Foundations/slides/2_1_neural-networks.pdf) |
-| Convolutional neural networks | [PDF](01_Foundations/slides/2_2_convolutional-neural-networks.pdf) |
-| Recurrent neural networks and transformers | [PDF](01_Foundations/slides/2_3_recurrent-neural-networks-transformers.pdf) |
-| Data: quality, representations, repositories, formats and reuse | [PowerPoint](02_Data/slides/Part2_Data_slides.pptx) · [PDF](02_Data/slides/resources/Part2_Data_slides.pdf) |
+| Neural networks | [PowerPoint](01_Foundations/slides/1_4_Neural%20networks.pptx) |
+| Convolutional neural networks | [PowerPoint](01_Foundations/slides/1_5_convolutional-neural-networks-new.pptx) |
+| Data: preparation, representations, quality and reuse | [Data notes](02_Data/notes/Part2_Data_notes.md) |
 
-Foundations: [Lecture notes](01_Foundations/notes/Part1_Foundations_notes.md) · [Overview slide outline](01_Foundations/slides/Part1_Foundations_slides.md) · [Figures](01_Foundations/slides/resources/)
+[Foundations lecture notes](01_Foundations/notes/Part1_Foundations_notes.md)
 
-Data: [Lecture notes](02_Data/notes/Part2_Data_notes.md) · [Slide outline](02_Data/slides/Part2_Data_slides.md) · [Figures](02_Data/slides/resources/) · [Module overview](02_Data/README.md)
+The Data topic brings together the preparation and representation choices used
+in the practicals, alongside data quality, formats and reuse.
 
 #### Continue the Foundations practicals
 
@@ -117,10 +129,11 @@ autoencoder to propose related molecules and predict their assay classes.
 
 | Topic | Slides |
 |---|---|
-| Evaluation of trained models | [PowerPoint](03_Evaluation/slides/Part3_Evaluation_slides.pptx) · [PDF](03_Evaluation/slides/resources/Part3_Evaluation_slides.pdf) |
-| Failure modes: underfitting, overfitting, bias, out of distribution and information leakage | [Visual PowerPoint supplement](03_Evaluation/slides/Part3_Failure_modes_visual.pptx) · [Slide outline and teaching notes](03_Evaluation/slides/Part3_Failure_modes_visual.md) |
+| Regularisation and failure modes: underfitting, overfitting, bias, out of distribution and information leakage | [PowerPoint](03_Evaluation/slides/3_1_regularization.pptx) |
+| Decision trees | [PowerPoint](03_Evaluation/slides/3_2_DecisionTrees.pptx) |
+| Ensemble learning | [PowerPoint](03_Evaluation/slides/3_3_ensemble_learning.pptx) |
 
-[Lecture notes](03_Evaluation/notes/Part3_Evaluation_notes.md) · [Main slide outline](03_Evaluation/slides/Part3_Evaluation_slides.md) · [Figures](03_Evaluation/slides/resources/)
+[Lecture notes](03_Evaluation/notes/Part3_Evaluation_notes.md)
 
 #### Practicals
 
@@ -139,7 +152,7 @@ the full spectra.
 
 [Take the Evaluation quiz — five questions](https://forms.gle/NrJCVNiXqYFhpYPM9)
 
-[Practical guidance](03_Evaluation/README.md) · [Browse all Evaluation materials](03_Evaluation/)
+[Browse all Evaluation materials](03_Evaluation/)
 
 </details>
 
@@ -152,10 +165,9 @@ the full spectra.
 
 | Topic | Slides |
 |---|---|
-| Applications in analytical chemistry: retention, fragmentation, identification, ion mobility and NMR | [PowerPoint](04_Applications/slides/Part4_Applications_slides.pptx) · [PDF](04_Applications/slides/resources/Part4_Applications_slides.pdf) |
-| CompOmics applications | [PowerPoint](04_Applications/slides/4_Applications_compomics.pptx) |
+| Applications: proteomics, NMR, Raman and powder diffraction | [PowerPoint](04_Applications/slides/4_Applications_compomics.pptx) |
 
-[Lecture notes](04_Applications/notes/Part4_Applications_notes.md) · [Slide outline](04_Applications/slides/Part4_Applications_slides.md) · [Figures](04_Applications/slides/resources/)
+[Lecture notes](04_Applications/notes/Part4_Applications_notes.md)
 
 #### Practicals
 
@@ -197,12 +209,11 @@ before the final test. Explain your decisions and document your prompts and chec
 | Foundation models | [PowerPoint](05_LLM_Tools/slides/5_2_foundation-models.pptx) |
 | LLMs as research tools: overview | [PowerPoint](05_LLM_Tools/slides/Part5_LLM_slides.pptx) · [PDF](05_LLM_Tools/slides/resources/Part5_LLM_slides.pdf) |
 
-- [Figures](05_LLM_Tools/slides/resources/)
+[Lecture notes](05_LLM_Tools/notes/Part5_LLM_notes.md) · [Figures](05_LLM_Tools/slides/resources/)
 
 | Practical | Student notebook | Run the practical | Answers |
 |---|---|---|---|
-| Peptide retention-time prediction: prompt, build and verify | [Notebook](05_LLM_Tools/notebooks/TD4_peptide_RT_student.ipynb) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/05_LLM_Tools/notebooks/TD4_peptide_RT_student.ipynb) | [Notebook with answers](05_LLM_Tools/notebooks/TD4_peptide_RT_solution.ipynb) · [Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/05_LLM_Tools/notebooks/TD4_peptide_RT_solution.ipynb) |
-| Optional: peak detection with LLM-generated code | [Notebook](05_LLM_Tools/notebooks/TD4_LLM_tools_student.ipynb) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/05_LLM_Tools/notebooks/TD4_LLM_tools_student.ipynb) | [Notebook with answers](05_LLM_Tools/notebooks/TD4_LLM_tools_solution.ipynb) · [Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/05_LLM_Tools/notebooks/TD4_LLM_tools_solution.ipynb) |
+| Peptide retention-time prediction: prompt, build and verify | [Notebook](05_LLM_Tools/notebooks/TD4_peptide_RT_student.ipynb) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/05_LLM_Tools/notebooks/TD4_peptide_RT_student.ipynb) | [Worked example](05_LLM_Tools/notebooks/TD4_peptide_RT_solution.ipynb) · [Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/05_LLM_Tools/notebooks/TD4_peptide_RT_solution.ipynb) |
 
 [Module overview](05_LLM_Tools/README.md) · [Browse all LLM materials](05_LLM_Tools/)
 
@@ -216,42 +227,11 @@ before the final test. Explain your decisions and document your prompts and chec
 | DeepChem Tox21 | Assay prediction, molecular generation and descriptor outliers | [Background, preparation and provenance](datasets/tox21/README.md) · [CSV download (.gz)](datasets/tox21/tox21.csv.gz) |
 | Peptide retention indices (DLOmix / ProteomeTools) | LLM-assisted regression project in Part 5 | [Background, preparation and provenance](datasets/peptide_rt/README.md) · [Classroom CSV backup (.gz)](datasets/peptide_rt/peptides_6000.csv.gz) |
 
-Each notebook can run on its own and loads its data automatically. Within
-each dataset series, the three notebooks reuse preparation and test records for teaching;
+Each practical loads its data automatically and can be started independently.
+Within the Strawberry and Tox21 series, the three notebooks reuse preparation
+and test records for teaching;
 this reuse is not new independent validation. Tox21 assay predictions do not
 establish overall toxicity or human safety. Dataset licences are documented
 separately from the [course repository licence](LICENSE).
 
 [All datasets and download guidance](datasets/README.md)
-
-## Earlier materials
-
-<details>
-<summary>Earlier practicals and slide versions</summary>
-
-These earlier practicals contain coding exercises. The Strawberry
-and Tox21 notebooks linked under each day are the current practicals.
-
-| Earlier practical | Student version | Answers |
-|---|---|---|
-| Classical ML: wine classification | [Notebook](01_Foundations/notebooks/TD1_classical_ML_student.ipynb) · [Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/01_Foundations/notebooks/TD1_classical_ML_student.ipynb) | [Notebook](01_Foundations/notebooks/TD1_classical_ML_solution.ipynb) · [Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/01_Foundations/notebooks/TD1_classical_ML_solution.ipynb) |
-| Model evaluation | [Notebook](03_Evaluation/notebooks/TD2_evaluation_student.ipynb) · [Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/03_Evaluation/notebooks/TD2_evaluation_student.ipynb) | [Notebook](03_Evaluation/notebooks/TD2_evaluation_solution.ipynb) · [Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/03_Evaluation/notebooks/TD2_evaluation_solution.ipynb) |
-| Applications | [Notebook](04_Applications/notebooks/TD3_applications_student.ipynb) · [Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/04_Applications/notebooks/TD3_applications_student.ipynb) | [Notebook](04_Applications/notebooks/TD3_applications_solution.ipynb) · [Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/04_Applications/notebooks/TD3_applications_solution.ipynb) |
-
-- Earlier failure-mode supplement: [PowerPoint](03_Evaluation/slides/Part3_Failure_modes_additional.pptx) · [Teaching notes](03_Evaluation/slides/Part3_Failure_modes_additional.md)
-- Some overview slides and lecture notes still refer to these earlier practicals; use the current notebooks for the guided exercises.
-
-
-#### Earlier project materials
-
-These documents describe the earlier project-based assessment and are retained
-as references. Their project grading weights do not apply to the current
-assessment: quizzes count for 40% and the written exam for 60%.
-
-- [Earlier project brief](assessment/project_brief.md)
-- [Earlier project marking rubric](assessment/rubric.md)
-- [Project dataset options](assessment/datasets_README.md)
-- [Student project notebook](assessment/project_template_student.ipynb) — [Open in Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/assessment/project_template_student.ipynb) · [Worked example with answers](assessment/project_solution.ipynb) ([Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/assessment/project_solution.ipynb))
-- [Earlier assessment overview](assessment/README.md)
-
-</details>

@@ -1,51 +1,55 @@
 # Datasets
 
-The TD notebooks load their data without a manual download step. Attributed
-compressed snapshots provide backups of the strawberry and Tox21 data.
+The practicals load their data automatically. The compressed snapshots below
+provide backups; each dataset guide documents its source, preparation and terms
+of reuse separately from the course repository licence.
 
-- **Current Part 1 (TD1):** [strawberry authentication](strawberry/README.md).
-  The dataset contains 983 infrared spectra of fruit purées labelled Strawberry
-  or NON-Strawberry, each with 235 measured wavenumbers. The practical removes
-  two identically measured records with conflicting labels and forms eight
-  predefined window means. Source-table and spectrum plots introduce the data;
-  a small tree and a four-neuron network illustrate classification. All code is
-  supplied; student exercises focus on interpretation. The dataset has its own
-  CC BY-NC 3.0 licence, separate from the course-code licence.
-- **Current Part 3 (TD2):** the same strawberry data and eight fixed features,
-  with a simple training/validation/test comparison of a small tree, a deep tree
-  and a random forest. The 197-observation classroom test partition has the same
-  membership as in Foundations and is not treated as new independent evidence.
-- **Current Part 4 (TD3):** the same strawberry data and eight fixed features.
-  An isolation forest learns from the 280 labelled Strawberry samples in the
-  Foundations training group, then screens the same 197 test samples. Six
-  interpretation questions focus on outliers and laboratory follow-up; all
-  code is supplied. Flags do not establish adulteration or certify purity.
-- **Parallel Tox21 series (TD1, TD2 and TD3):**
-  [DeepChem-distributed Tox21 data](tox21/README.md), using one assay endpoint
-  (SR-MMP) and eight readable molecular descriptors calculated with RDKit.
-  The three practicals cover one small tree, overfitting and model comparison,
-  then descriptor outliers. Each provides all code and six written questions.
-  Missing assay results are excluded; the same cleaned 5,804 records and
-  1,161-record test group are used throughout. Assay activity and descriptor
-  flags are distinct from an overall judgement of toxicity or safety.
-- **Legacy Part 1 (TD1):** Wine recognition dataset (sklearn.datasets.load_wine). Results
-  of a chemical analysis of wines grown in the same region of Italy but derived
-  from three different cultivars. Thirteen continuous features are quantities
-  determined by chemical analysis (alcohol, malic acid, ash, alcalinity of ash,
-  magnesium, total phenols, flavanoids, nonflavanoid phenols, proanthocyanins,
-  colour intensity, hue, OD280/OD315 of diluted wines, proline); the target is
-  the cultivar (3 classes, 178 samples). Chosen because it is genuinely
-  analytical-chemistry data, ships with scikit-learn, and trains in seconds.
-  Reference: Forina, M. et al., via the UCI Machine Learning Repository.
+| Dataset | Documentation | Classroom backup |
+|---|---|---|
+| Strawberry fruit purées | [Measurements, targets and preparation](strawberry/README.md) | [CSV (.gz)](strawberry/fruit_purees.csv.gz) |
+| DeepChem Tox21 | [Assay, descriptors and provenance](tox21/README.md) | [CSV (.gz)](tox21/tox21.csv.gz) |
+| Peptide retention indices | [Source, target scale and preparation](peptide_rt/README.md) | [CSV (.gz)](peptide_rt/peptides_6000.csv.gz) |
 
-- Current Part 5 (TD4): [peptide retention-index prediction](peptide_rt/README.md).
-  Students choose their own sequence features and models with an LLM, compare
-  with a baseline, and use validation data to guide a change before the final
-  test. The student notebook provides data-loading code and an open project
-  brief; the worked implementation is in the instructor notebook. The practical
-  uses 6,000 real DLOmix / ProteomeTools peptides with calibrated iRT targets,
-  not minutes, and asks five questions about students' own choices and results.
+## Strawberry: guided practicals
 
-The legacy Evaluation practical uses a scikit-learn diagnostic dataset. The
-legacy Applications practical generates illustrative retention data; the
-optional earlier LLM Tools exercise generates illustrative peak-detection data within its notebook.
+The source contains 983 infrared spectra of fruit purées, each measured at
+235 wavenumbers. The target is Strawberry or NON-Strawberry. The practicals
+exclude two identically measured records with conflicting targets, leaving
+981 samples, and summarise each spectrum with eight predefined window means.
+
+Foundations introduces the data and compares a small decision tree with a
+neural network. Evaluation compares small and deep trees, a random forest and
+a small convolutional neural network; the latter uses the full spectra.
+Applications uses an isolation forest trained on 280 Strawberry samples to
+flag unusual measurements for laboratory follow-up. Flags do not establish
+adulteration or certify purity.
+
+## Tox21: independent practicals
+
+The three Tox21 practicals use the mitochondrial membrane potential assay
+(SR-MMP) and eight molecular descriptors calculated with RDKit. The cleaned
+subset contains 5,804 compounds with an Active or Inactive assay target.
+Missing assay results are excluded, rather than treated as Inactive.
+
+Foundations fits a small tree, then uses a pretrained autoencoder to propose
+related molecules and predicts their assay classes. Evaluation compares models
+and illustrates overfitting. Applications flags unusual descriptor patterns.
+Assay predictions and outlier flags do not establish overall toxicity or
+human safety. These practicals use the DeepChem-distributed data without
+requiring the DeepChem package.
+
+Both series provide the code and ask students to interpret the steps and
+results. Within each series, all three practicals reuse the same test records
+(197 Strawberry samples or 1,161 Tox21 compounds). This supports classroom
+comparisons; it does not provide fresh independent validation.
+
+## Peptides: LLM-assisted project
+
+Day 5 uses 6,000 real DLOmix / ProteomeTools peptides with experimentally derived
+retention indices. The target is calibrated iRT, without time units, rather
+than retention time in minutes.
+
+Students use an LLM to choose sequence features and models, compare with a
+baseline, and use validation data to guide a change before the final test.
+The student notebook supplies data-loading code and an open project brief.
+The instructor notebook provides one possible worked implementation.

@@ -40,9 +40,16 @@ and there are no run or batch groups available for a stronger split.
 [peptides_6000.csv.gz](peptides_6000.csv.gz) is a backup of exactly this sample,
 with the original columns and target scale retained. No targets were simulated.
 For an offline run, upload this backup to Colab and replace the data-loading cell
-with `raw_data = pd.read_csv("peptides_6000.csv.gz")`; the following sample cell
-will then shuffle those rows again, so instead set `data = raw_data.copy()` there
-to retain the supplied snapshot order (and the split used in the instructor example).
+with:
+
+```python
+import pandas as pd
+data = pd.read_csv("peptides_6000.csv.gz")
+data.head()
+```
+
+The backup already contains the selected 6,000 rows. No further sampling is
+needed; this preserves their order and the split used in the instructor example.
 
 Run `python datasets/peptide_rt/prepare_data.py` from the repository root to
 regenerate the snapshot. [provenance.json](provenance.json) records the source
