@@ -55,9 +55,9 @@ bring together the preparation and representation choices used in the practicals
 
 | Topic | Slides |
 |---|---|
-| Introduction to machine learning | [PowerPoint](01_Foundations/slides/1_1_introduction.pptx) |
-| Regression | [PowerPoint](01_Foundations/slides/1_2_regression.pptx) |
-| Logistic regression | [PowerPoint](01_Foundations/slides/1_3_logistic_regression.pptx) |
+| Introduction to machine learning | [PowerPoint](01_Foundations/slides/1_1_introduction.pptx) · [PDF](01_Foundations/slides/resources/1_1_introduction.pdf) |
+| Regression | [PowerPoint](01_Foundations/slides/1_2_regression.pptx) · [PDF](01_Foundations/slides/resources/1_2_regression.pdf) |
+| Logistic regression | [PowerPoint](01_Foundations/slides/1_3_logistic_regression.pptx) · [PDF](01_Foundations/slides/resources/1_3_logistic_regression.pdf) |
 
 [Lecture notes](01_Foundations/notes/Part1_Foundations_notes.md)
 
@@ -91,8 +91,8 @@ quiz follows the second day.
 
 | Topic | Materials |
 |---|---|
-| Neural networks | [PowerPoint](01_Foundations/slides/1_4_Neural%20networks.pptx) |
-| Convolutional neural networks | [PowerPoint](01_Foundations/slides/1_5_convolutional-neural-networks-new.pptx) |
+| Neural networks | [PowerPoint](01_Foundations/slides/1_4_Neural%20networks.pptx) · [PDF](01_Foundations/slides/resources/1_4_Neural%20networks.pdf) |
+| Convolutional neural networks | [PowerPoint](01_Foundations/slides/1_5_convolutional-neural-networks-new.pptx) · [PDF](01_Foundations/slides/resources/1_5_convolutional-neural-networks-new.pdf) |
 | Data: preparation, representations, quality and reuse | [Data notes](02_Data/notes/Part2_Data_notes.md) |
 
 [Foundations lecture notes](01_Foundations/notes/Part1_Foundations_notes.md)
@@ -129,9 +129,9 @@ autoencoder to propose related molecules and predict their assay classes.
 
 | Topic | Slides |
 |---|---|
-| Regularisation and failure modes: underfitting, overfitting, bias, out of distribution and information leakage | [PowerPoint](03_Evaluation/slides/3_1_regularization.pptx) |
-| Decision trees | [PowerPoint](03_Evaluation/slides/3_2_DecisionTrees.pptx) |
-| Ensemble learning | [PowerPoint](03_Evaluation/slides/3_3_ensemble_learning.pptx) |
+| Regularisation and failure modes: underfitting, overfitting, bias, out of distribution and information leakage | [PowerPoint](03_Evaluation/slides/3_1_regularization.pptx) · [PDF](03_Evaluation/slides/resources/3_1_regularization.pdf) |
+| Decision trees | [PowerPoint](03_Evaluation/slides/3_2_DecisionTrees.pptx) · [PDF](03_Evaluation/slides/resources/3_2_DecisionTrees.pdf) |
+| Ensemble learning | [PowerPoint](03_Evaluation/slides/3_3_ensemble_learning.pptx) · [PDF](03_Evaluation/slides/resources/3_3_ensemble_learning.pdf) |
 
 [Lecture notes](03_Evaluation/notes/Part3_Evaluation_notes.md)
 
@@ -165,7 +165,7 @@ the full spectra.
 
 | Topic | Slides |
 |---|---|
-| Applications: proteomics, NMR, Raman and powder diffraction | [PowerPoint](04_Applications/slides/4_Applications_compomics.pptx) |
+| Applications: proteomics, NMR, Raman and powder diffraction | [PowerPoint](04_Applications/slides/4_Applications_compomics.pptx) · [PDF](04_Applications/slides/resources/4_Applications_compomics.pdf) |
 
 [Lecture notes](04_Applications/notes/Part4_Applications_notes.md)
 
@@ -205,9 +205,9 @@ before the final test. Explain your decisions and document your prompts and chec
 
 | Topic | Slides |
 |---|---|
-| Recurrent neural networks and transformers | [PowerPoint](05_LLM_Tools/slides/5_1_recurrent-neural-networks-transformers.pptx) |
-| Foundation models | [PowerPoint](05_LLM_Tools/slides/5_2_foundation-models.pptx) |
-| LLMs as research tools: overview | [PowerPoint](05_LLM_Tools/slides/Part5_LLM_slides.pptx) · [PDF](05_LLM_Tools/slides/resources/Part5_LLM_slides.pdf) |
+| Recurrent neural networks and transformers | [PowerPoint](05_LLM_Tools/slides/5_1_recurrent-neural-networks-transformers.pptx) · [PDF](05_LLM_Tools/slides/resources/5_1_recurrent-neural-networks-transformers.pdf) |
+| Foundation models | [PowerPoint](05_LLM_Tools/slides/5_2_foundation-models.pptx) · [PDF](05_LLM_Tools/slides/resources/5_2_foundation-models.pdf) |
+| LLMs as research tools: overview | [PowerPoint](05_LLM_Tools/slides/5_3_Part5_LLM_slides.pptx) · [PDF](05_LLM_Tools/slides/resources/5_3_Part5_LLM_slides.pdf) |
 
 [Lecture notes](05_LLM_Tools/notes/Part5_LLM_notes.md) · [Figures](05_LLM_Tools/slides/resources/)
 

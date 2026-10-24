@@ -36,6 +36,6 @@ quizzes, rather than this notebook, make up the 40% continuous-assessment mark.
 
 ## Lectures
 
-- [Recurrent neural networks and transformers](slides/5_1_recurrent-neural-networks-transformers.pptx)
-- [Foundation models](slides/5_2_foundation-models.pptx)
-- [LLMs as research tools](slides/Part5_LLM_slides.pptx)
+- [Recurrent neural networks and transformers](slides/5_1_recurrent-neural-networks-transformers.pptx) · [PDF](slides/resources/5_1_recurrent-neural-networks-transformers.pdf)
+- [Foundation models](slides/5_2_foundation-models.pptx) · [PDF](slides/resources/5_2_foundation-models.pdf)
+- [LLMs as research tools](slides/5_3_Part5_LLM_slides.pptx) · [PDF](slides/resources/5_3_Part5_LLM_slides.pdf)

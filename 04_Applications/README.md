@@ -1,6 +1,6 @@
 # Part 4: Applications in analytical chemistry
 
-[Lecture notes](notes/Part4_Applications_notes.md) · [PowerPoint](slides/4_Applications_compomics.pptx)
+[Lecture notes](notes/Part4_Applications_notes.md) · [PowerPoint](slides/4_Applications_compomics.pptx) · [PDF](slides/resources/4_Applications_compomics.pdf)
 
 The presentation covers applications in proteomics, NMR, Raman spectroscopy
 and powder diffraction. Work through the Strawberry practical with the

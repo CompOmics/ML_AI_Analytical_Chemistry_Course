@@ -8,7 +8,7 @@ This topic connects sequence modelling and pretrained representations to the use
 |---|---|
 | [Recurrent neural networks and transformers](../slides/5_1_recurrent-neural-networks-transformers.pptx) | Ordered data, numerical encodings, memory and attention |
 | [Foundation models](../slides/5_2_foundation-models.pptx) | Pretraining, self-supervision and fine-tuning |
-| [LLMs as research tools](../slides/Part5_LLM_slides.pptx) | Useful tasks, hallucinations, prompts and verification |
+| [LLMs as research tools](../slides/5_3_Part5_LLM_slides.pptx) | Useful tasks, hallucinations, prompts and verification |
 | Peptide project: [student notebook](../notebooks/TD4_peptide_RT_student.ipynb), [instructor example](../notebooks/TD4_peptide_RT_solution.ipynb) | Design, build and assess a model using student-written prompts |
 
 The student notebook supplies one cell to load and preview the data and two empty code workspaces. Students can add cells as their analysis develops. The instructor notebook contains one worked implementation for discussion, rather than a required algorithm or a score every student should reproduce.
