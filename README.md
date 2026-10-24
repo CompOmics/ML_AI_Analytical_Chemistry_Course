@@ -186,6 +186,11 @@ establish purity or safety.
 Use LLMs to support research while documenting prompts, checking outputs and
 keeping responsibility for the analysis.
 
+In the peptide practical, build your own retention-index model with an LLM.
+The notebook supplies the data and an open project brief. Choose your features
+and model, compare with a baseline, and try an improvement using validation data
+before the final test. Explain your decisions and document your prompts and checks.
+
 | Topic | Slides |
 |---|---|
 | Recurrent neural networks and transformers | [PowerPoint](05_LLM_Tools/slides/5_1_recurrent-neural-networks-transformers.pptx) |
@@ -196,7 +201,8 @@ keeping responsibility for the analysis.
 
 | Practical | Student notebook | Run the practical | Answers |
 |---|---|---|---|
-| LLMs as research tools | [Notebook](05_LLM_Tools/notebooks/TD4_LLM_tools_student.ipynb) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/05_LLM_Tools/notebooks/TD4_LLM_tools_student.ipynb) | [Notebook with answers](05_LLM_Tools/notebooks/TD4_LLM_tools_solution.ipynb) · [Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/05_LLM_Tools/notebooks/TD4_LLM_tools_solution.ipynb) |
+| Peptide retention-time prediction: prompt, build and verify | [Notebook](05_LLM_Tools/notebooks/TD4_peptide_RT_student.ipynb) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/05_LLM_Tools/notebooks/TD4_peptide_RT_student.ipynb) | [Notebook with answers](05_LLM_Tools/notebooks/TD4_peptide_RT_solution.ipynb) · [Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/05_LLM_Tools/notebooks/TD4_peptide_RT_solution.ipynb) |
+| Optional: peak detection with LLM-generated code | [Notebook](05_LLM_Tools/notebooks/TD4_LLM_tools_student.ipynb) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/05_LLM_Tools/notebooks/TD4_LLM_tools_student.ipynb) | [Notebook with answers](05_LLM_Tools/notebooks/TD4_LLM_tools_solution.ipynb) · [Colab](https://colab.research.google.com/github/CompOmics/ML_AI_Analytical_Chemistry_Course/blob/main/05_LLM_Tools/notebooks/TD4_LLM_tools_solution.ipynb) |
 
 [Module overview](05_LLM_Tools/README.md) · [Browse all LLM materials](05_LLM_Tools/)
 
@@ -208,6 +214,7 @@ keeping responsibility for the analysis.
 |---|---|---|
 | Strawberry fruit purées | Spectral classification and outlier detection | [Background, preparation and licence](datasets/strawberry/README.md) · [CSV download (.gz)](datasets/strawberry/fruit_purees.csv.gz) |
 | DeepChem Tox21 | Assay prediction, molecular generation and descriptor outliers | [Background, preparation and provenance](datasets/tox21/README.md) · [CSV download (.gz)](datasets/tox21/tox21.csv.gz) |
+| Peptide retention indices (DLOmix / ProteomeTools) | LLM-assisted regression project in Part 5 | [Background, preparation and provenance](datasets/peptide_rt/README.md) · [Classroom CSV backup (.gz)](datasets/peptide_rt/peptides_6000.csv.gz) |
 
 Each notebook can run on its own and loads its data automatically. Within
 each dataset series, the three notebooks reuse preparation and test records for teaching;

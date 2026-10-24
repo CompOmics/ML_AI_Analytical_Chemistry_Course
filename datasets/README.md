@@ -38,6 +38,14 @@ compressed snapshots provide backups of the strawberry and Tox21 data.
   analytical-chemistry data, ships with scikit-learn, and trains in seconds.
   Reference: Forina, M. et al., via the UCI Machine Learning Repository.
 
+- Current Part 5 (TD4): [peptide retention-index prediction](peptide_rt/README.md).
+  Students choose their own sequence features and models with an LLM, compare
+  with a baseline, and use validation data to guide a change before the final
+  test. The student notebook provides data-loading code and an open project
+  brief; the worked implementation is in the instructor notebook. The practical
+  uses 6,000 real DLOmix / ProteomeTools peptides with calibrated iRT targets,
+  not minutes, and asks five questions about students' own choices and results.
+
 The legacy Evaluation practical uses a scikit-learn diagnostic dataset. The
 legacy Applications practical generates illustrative retention data; the
-LLM Tools practical generates illustrative peak-detection data within its notebook.
+optional earlier LLM Tools exercise generates illustrative peak-detection data within its notebook.

@@ -1,0 +1,10 @@
+{
+  "commit": "f67623048c8692823cff88c3a7521123697af781",
+  "url": "https://raw.githubusercontent.com/wilhelm-lab/dlomix/f67623048c8692823cff88c3a7521123697af781/example_dataset/proteomTools_train_val.csv",
+  "sha256": "f7a1ab2364583313efedd34de08d48a13a8fc43a9602e5507730f54bd6b3f285",
+  "source_rows": 34000,
+  "snapshot_rows": 6000,
+  "sample_random_state": 42,
+  "snapshot_sha256": "2321fddae20283ea8979cd0bfba640c43c3ccde1b21680de768beb24aa4d9341",
+  "source_license_url": "https://raw.githubusercontent.com/wilhelm-lab/dlomix/f67623048c8692823cff88c3a7521123697af781/LICENSE"
+}
