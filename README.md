@@ -7,12 +7,11 @@ Coordinator: Lennart Martens. Instructors: Lennart Martens, Robbin Bouwmeester a
 
 ## Getting started
 
-- Open the materials for your day below. The course runs over five days, with Foundations spread across the first two.
-- Complete both the Strawberry and Tox21 practical series, in the order Foundations → Evaluation → Applications.
-- Work through each Strawberry practical together with the instructor, then complete the corresponding Tox21 practical independently to apply what you have learned.
-- Click an Open in Colab button to run a practical without installing anything locally. The six Strawberry and Tox21 practicals provide all code; run the cells and answer the interpretation questions in words. On day 5, use an LLM to help build your own peptide prediction model.
-- Save your own notebook copy to keep your answers. You can also fork this repository if you want an editable copy of all course materials.
+- All materials and links to them are below
+- Practicals are done in the form of notebooks; we recommend you can run them on google colab (requires a google account) or locally (we can help you with the installation, but this is much more involved)
+- Answers for all practicals are available
 - Complete the Foundations quiz after day 2, the Evaluation quiz after day 3 and the Applications quiz after day 4. Each quiz follows the lecture and both corresponding practicals.
+- Based on timing we might change when specific subjects are discussed
 
 ## Grading
 
