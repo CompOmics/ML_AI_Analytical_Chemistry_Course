@@ -111,7 +111,7 @@ The slides introduce variational autoencoders through [Gómez-Bombarelli et al. 
 
 ## 10. Connecting to the following topics
 
-[Data](../../02_Data/notes/Part2_Data_notes.md) examines what the representations retain and how preparation affects interpretation. [Evaluation](../../03_Evaluation/notes/Part3_Evaluation_notes.md) introduces a validation group, stronger overfitting demonstrations and comparison with a CNN. [Applications](../../04_Applications/notes/Part4_Applications_notes.md) reuses the features but changes the question from predicting targets to identifying unusual patterns.
+[Data](../../02_Data/notes/Part2_Data_notes.md) examines data quality, lifecycle, governance and the software, storage and computing infrastructure that support an analysis. The Foundations practicals introduce the specific feature representations and preparation steps. [Evaluation](../../03_Evaluation/notes/Part3_Evaluation_notes.md) introduces a validation group, stronger overfitting demonstrations and comparison with a CNN. [Applications](../../04_Applications/notes/Part4_Applications_notes.md) reuses the features but changes the question from predicting targets to identifying unusual patterns.
 
 Useful revision questions are whether a quantity is an input, target, learned parameter or chosen setting; which records taught the model; and what evidence would support its use on a new sample. Being able to answer these questions matters more than memorising Python syntax.
 

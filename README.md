@@ -21,9 +21,10 @@ practical.
 
 ## Lecture notes
 
-These notes follow the current presentations and practicals, with consistent
-terminology and explanations for students who do not program. The Data notes
-bring together the preparation and representation choices used in the practicals.
+These notes support the lectures and practicals, with consistent terminology
+and explanations for students who do not program. The Data notes follow the
+lecturer's outline on data quality and governance, software reproducibility,
+storage and computing infrastructure.
 
 | Topic | Notes |
 |---|---|
@@ -38,7 +39,7 @@ bring together the preparation and representation choices used in the practicals
 | Day | Main question | Materials | Quiz |
 |---|---|---|---|
 | 1. Foundations | How does a model learn to predict from data? | [Lectures and practicals](#day-1-foundations) | Foundations quiz follows day 2 |
-| 2. Foundations and Data | How do neural networks learn, and how do we prepare and reuse data? | [Lectures and practicals](#day-2-foundations-and-data) | [Foundations quiz](https://forms.gle/EYMPYgqdB4GiHHZN7) |
+| 2. Foundations and Data | How do neural networks learn, and what data and infrastructure support an AI analysis? | [Lectures and practicals](#day-2-foundations-and-data) | [Foundations quiz](https://forms.gle/EYMPYgqdB4GiHHZN7) |
 | 3. Evaluation | Which model should we trust on new examples? | [Lectures and practicals](#day-3-evaluation) | [Evaluation quiz](https://forms.gle/NrJCVNiXqYFhpYPM9) |
 | 4. Applications | Which measurements or compounds need a closer look? | [Lectures and practicals](#day-4-applications) | [Applications quiz](https://forms.gle/nnajgJVD9WouWYkM7) |
 | 5. LLM tools | How can LLMs support research while we check their outputs? | [Lectures and practical](#day-5-llm-tools) | — |
@@ -92,12 +93,14 @@ quiz follows the second day.
 |---|---|
 | Neural networks | [PowerPoint](01_Foundations/slides/1_4_Neural%20networks.pptx) · [PDF](01_Foundations/slides/resources/1_4_Neural%20networks.pdf) |
 | Convolutional neural networks | [PowerPoint](01_Foundations/slides/1_5_convolutional-neural-networks-new.pptx) · [PDF](01_Foundations/slides/resources/1_5_convolutional-neural-networks-new.pdf) |
-| Data: preparation, representations, quality and reuse | [Data notes](02_Data/notes/Part2_Data_notes.md) |
+| Data and computation: quality, governance, software, storage and compute | [Data notes](02_Data/notes/Part2_Data_notes.md) |
 
 [Foundations lecture notes](01_Foundations/notes/Part1_Foundations_notes.md)
 
-The Data topic brings together the preparation and representation choices used
-in the practicals, alongside data quality, formats and reuse.
+The Data lecture covers data quality and lifecycle, FAIR principles and trusted
+repositories, governance and ownership, software reproducibility, storage,
+computing needs and costs, environmental impacts, and infrastructure access
+and selection. The practicals provide the examples of preparing model inputs.
 
 #### Continue the Foundations practicals
 
