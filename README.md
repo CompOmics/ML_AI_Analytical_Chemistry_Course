@@ -22,14 +22,11 @@ practical.
 ## Lecture notes
 
 These notes support the lectures and practicals, with consistent terminology
-and explanations for students who do not program. The Data notes follow the
-lecturer's outline on data quality and governance, software reproducibility,
-storage and computing infrastructure.
+and explanations for students who do not program.
 
 | Topic | Notes |
 |---|---|
 | Foundations (days 1 and 2) | [Foundations notes](01_Foundations/notes/Part1_Foundations_notes.md) |
-| Data | [Data notes](02_Data/notes/Part2_Data_notes.md) |
 | Evaluation | [Evaluation notes](03_Evaluation/notes/Part3_Evaluation_notes.md) |
 | Applications | [Applications notes](04_Applications/notes/Part4_Applications_notes.md) |
 | LLM tools and the peptide project | [LLM Tools notes](05_LLM_Tools/notes/Part5_LLM_notes.md) |
@@ -93,7 +90,7 @@ quiz follows the second day.
 |---|---|
 | Neural networks | [PowerPoint](01_Foundations/slides/1_4_Neural%20networks.pptx) · [PDF](01_Foundations/slides/resources/1_4_Neural%20networks.pdf) |
 | Convolutional neural networks | [PowerPoint](01_Foundations/slides/1_5_convolutional-neural-networks-new.pptx) · [PDF](01_Foundations/slides/resources/1_5_convolutional-neural-networks-new.pdf) |
-| Data and computation: quality, governance, software, storage and compute | [Data notes](02_Data/notes/Part2_Data_notes.md) |
+| Data and computation: quality, governance, software, storage and compute | Lecture materials are not included in this repository. |
 
 [Foundations lecture notes](01_Foundations/notes/Part1_Foundations_notes.md)
 
@@ -118,7 +115,7 @@ autoencoder to propose related molecules and predict their assay classes.
 
 [Take the Foundations quiz — five questions](https://forms.gle/EYMPYgqdB4GiHHZN7)
 
-[Browse all Foundations materials](01_Foundations/) · [Browse all Data materials](02_Data/)
+[Browse all Foundations materials](01_Foundations/)
 
 </details>
 
