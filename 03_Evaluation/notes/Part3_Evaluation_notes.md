@@ -7,7 +7,7 @@ A model's training score describes how well it fits examples already used for le
 | Material | Main ideas |
 |---|---|
 | [Regularisation and failure modes](../slides/3_1_regularization.pptx) | Underfitting, overfitting, bias, distribution change, leakage and validation |
-| [Decision trees](../slides/3_2_DecisionTrees.pptx) | Learning splits, class impurity and tree structure, illustrated with Iris |
+| [Decision trees: Gini impurity](../slides/3_2_DecisionTrees.pptx) | Revisit split quality and tree structure with Iris, building on entropy and information gain in Foundations |
 | [Ensemble learning](../slides/3_3_ensemble_learning.pptx) | Bagging, random forests, boosting and the bias–variance intuition |
 | Strawberry Evaluation: [student](../notebooks/TD2_strawberry_student.ipynb), [answers](../notebooks/TD2_strawberry_solution.ipynb) | Compare trees, a forest and a full-spectrum CNN |
 | Tox21 Evaluation: [student](../notebooks/TD2_tox21_student.ipynb), [answers](../notebooks/TD2_tox21_solution.ipynb) | Compare assay classifiers and inspect missed Active results |

@@ -46,13 +46,14 @@ and explanations for students who do not program.
 ### Day 1: Foundations
 
 <details>
-<summary>Introduction, regression and Foundations practicals</summary>
+<summary>Introduction, decision trees, regression and Foundations practicals</summary>
 
 #### Lectures
 
 | Topic | Slides |
 |---|---|
 | Introduction to machine learning | [PowerPoint](01_Foundations/slides/1_1_introduction.pptx) · [PDF](01_Foundations/slides/resources/1_1_introduction.pdf) |
+| Decision trees: bits, entropy and information gain | [PowerPoint](01_Foundations/slides/1_1a_decision_trees.pptx) · [PDF](01_Foundations/slides/resources/1_1a_decision_trees.pdf) |
 | Regression | [PowerPoint](01_Foundations/slides/1_2_regression.pptx) · [PDF](01_Foundations/slides/resources/1_2_regression.pdf) |
 | Logistic regression | [PowerPoint](01_Foundations/slides/1_3_logistic_regression.pptx) · [PDF](01_Foundations/slides/resources/1_3_logistic_regression.pdf) |
 
@@ -129,7 +130,7 @@ autoencoder to propose related molecules and predict their assay classes.
 | Topic | Slides |
 |---|---|
 | Regularisation and failure modes: underfitting, overfitting, bias, out of distribution and information leakage | [PowerPoint](03_Evaluation/slides/3_1_regularization.pptx) · [PDF](03_Evaluation/slides/resources/3_1_regularization.pdf) |
-| Decision trees | [PowerPoint](03_Evaluation/slides/3_2_DecisionTrees.pptx) · [PDF](03_Evaluation/slides/resources/3_2_DecisionTrees.pdf) |
+| Decision trees: Gini impurity and split quality | [PowerPoint](03_Evaluation/slides/3_2_DecisionTrees.pptx) · [PDF](03_Evaluation/slides/resources/3_2_DecisionTrees.pdf) |
 | Ensemble learning | [PowerPoint](03_Evaluation/slides/3_3_ensemble_learning.pptx) · [PDF](03_Evaluation/slides/resources/3_3_ensemble_learning.pdf) |
 
 [Lecture notes](03_Evaluation/notes/Part3_Evaluation_notes.md)
