@@ -7,6 +7,7 @@ These notes follow the Foundations lectures across days 1 and 2. They introduce 
 | Material | Main ideas |
 |---|---|
 | [Introduction](../slides/1_1_introduction.pptx) | Experience, task, performance and generalisation; different data and prediction tasks |
+| [Decision trees](../slides/1_1a_decision_trees.pptx) | Binary representation, entropy, information gain and learning tree rules |
 | [Regression](../slides/1_2_regression.pptx) | Linear models, parameters, loss, gradient descent and polynomial features |
 | [Logistic regression](../slides/1_3_logistic_regression.pptx) | Binary classification, sigmoid output and classification loss |
 | [Neural networks](../slides/1_4_Neural%20networks.pptx) | Layers, activations, backpropagation, batches and epochs |
@@ -63,7 +64,9 @@ An output of 0.9 is a model estimate for one example, not a guarantee that this 
 
 A decision tree sorts training examples into smaller groups by asking questions about features. At a node, it might ask whether B6 is at or below a learned cut-off. A new sample follows the same sequence of questions until it reaches a final group, called a leaf. That leaf supplies the predicted class using the training examples that reached it.
 
-The Foundations trees have `max_depth=2`, allowing at most two decisions along a route. The fitting procedure learns the feature choices and cut-offs; the user supplies the depth limit. The plotted tree makes this distinction visible. Following one route explains the model's decision, although a learned cut-off does not by itself establish a chemical cause. Evaluation explains how splits are selected and what happens when depth restrictions are removed.
+The decision-tree presentation introduces entropy as a measure of uncertainty in the class proportions. A group containing only one class has entropy zero; a more evenly mixed group has higher entropy. Information gain measures how much a split reduces this uncertainty, using the sizes of the resulting groups to weight their entropies. The lecture uses this idea to explain how a tree chooses useful questions.
+
+The Foundations trees have `max_depth=2`, allowing at most two decisions along a route. The fitting procedure learns the feature choices and cut-offs; the user supplies the depth limit. The plotted tree makes this distinction visible. Following one route explains the model's decision, although a learned cut-off does not by itself establish a chemical cause. Evaluation revisits split quality using Gini impurity and examines what happens when depth restrictions are removed. The supplied notebook trees use Gini impurity; entropy provides another way to measure how mixed a group is.
 
 ## 6. Neural networks: combining learned transformations
 
