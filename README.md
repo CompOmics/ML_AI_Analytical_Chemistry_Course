@@ -37,7 +37,7 @@ and explanations for students who do not program.
 |---|---|---|---|
 | 1. Foundations | How does a model learn to predict from data? | [Lectures and practicals](#day-1-foundations) | Foundations quiz follows day 2 |
 | 2. Foundations and Data | How do neural networks learn, and what data and infrastructure support an AI analysis? | [Lectures and practicals](#day-2-foundations-and-data) | [Foundations quiz](https://docs.google.com/forms/d/e/1FAIpQLSfNyo8zguGevZj8f1ZVepjZaLrqvNErFJM23dHkTNNbIUVPhw/viewform) |
-| 3. Evaluation | Which model should we trust on new examples? | [Lectures and practicals](#day-3-evaluation) | [Evaluation quiz](https://forms.gle/NrJCVNiXqYFhpYPM9) |
+| 3. Evaluation | Which model should we trust on new examples? | [Lectures and practicals](#day-3-evaluation) | [Evaluation quiz](https://docs.google.com/forms/d/e/1FAIpQLSfEEbYTG0K87yJC7cVm7jJmxoN1iISZt7y58GQ9psboMw5O5Q/viewform) |
 | 4. Applications | Which measurements or compounds need a closer look? | [Lectures and practicals](#day-4-applications) | [Applications quiz](https://forms.gle/nnajgJVD9WouWYkM7) |
 | 5. LLM tools | How can LLMs support research while we check their outputs? | [Lectures and practical](#day-5-llm-tools) | — |
 
