@@ -5,7 +5,7 @@
 Course materials for the M2 teaching unit, Master 2 Chimie — Sciences analytiques
 (3 ECTS, 15 h lectures / 6 h practicals).
 
-Coordinator: Lennart Martens. Instructors: Lennart Martens, Robbin Bouwmeester and Jérôme Pansanel.
+Coordinator: Lennart Martens (lennart.martens@ugent.be). Instructors: Lennart Martens, Robbin Bouwmeester (robbin.bouwmeester@ugent.be) and Jérôme Pansanel.
 
 ## Getting started
 
