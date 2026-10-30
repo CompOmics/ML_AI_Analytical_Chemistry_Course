@@ -1,5 +1,7 @@
 # Machine Learning and AI for Analytical Chemistry
 
+# [Course evaluation form](https://docs.google.com/forms/d/e/1FAIpQLSdGPUqGBN0CFt1aAkIVUZz6uWC8wDZ3WVBoqxIu-Kk_sJCP8g/viewform?usp=dialog)
+
 Course materials for the M2 teaching unit, Master 2 Chimie — Sciences analytiques
 (3 ECTS, 15 h lectures / 6 h practicals).
 
